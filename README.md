@@ -29,7 +29,7 @@ G05
 * Thiên kiến may mắn: Thắng một vài lệnh dễ làm người chơi chủ quan, xem nhẹ việc phân biệt tín hiệu thật với nhiễu và kỷ luật kiểm soát mức độ sụt giảm tài sản.
 
 ## Người dùng mục tiêu
-Sinh viên chuyên ngành kinh tế và tài chính: Người chơi muốn trực tiếp thực hành các khái niệm lý thuyết như Arbitrage tam giác, Carry Trade, dòng tiền vĩ mô và cấu trúc vi mô thị trường thông qua mô phỏng tương tác. Giảng viên có thể sử dụng game như một công cụ học tập mô phỏng trong lớp học, giúp chuyển các khái niệm tài chính trừu tượng thành trải nghiệm thực tế, cho phép sinh viên trực tiếp thử nghiệm chiến lược, quan sát phản ứng của thị trường và học hỏi từ kết quả lời/lỗ (môn Tài chính quốc tế hoặc Thị trường và định chế tài chính)
+Sinh viên chuyên ngành kinh tế và tài chính: Người chơi muốn trực tiếp thực hành các khái niệm lý thuyết như Arbitrage tam giác, Carry Trade, dòng tiền vĩ mô và cấu trúc vi mô thị trường thông qua mô phỏng tương tác. Giảng viên có thể sử dụng game như một công cụ học tập mô phỏng trong lớp học, giúp chuyển các khái niệm tài chính trừu tượng thành trải nghiệm thực tế, cho phép sinh viên trực tiếp thử nghiệm chiến lược, quan sát phản ứng của thị trường và học hỏi từ kết quả lời/lỗ (môn Tài chính quốc tế hoặc Thị trường và định chế tài chính).
 
 ## Tính năng chính
 * Mô phỏng sự thay đổi của giao dịch arbitrage qua từng thời kỳ: từ giao dịch giữa người với người (Phase 1), đến cross-market arbitrage (Phase 2), đến chiến lược Carry Trade liên thị trường (Phase 3).
