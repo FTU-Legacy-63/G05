@@ -17,7 +17,7 @@ G05
 
 
 ## Mô tả ngắn về sản phẩm
-    ARBIVERSE là một game mô phỏng kinh doanh chênh lệch giá và sự phát triển của thị trường tài chính. Người chơi trải qua 03 giai đoạn phát triển của thị trường, hoá thân thành các vai trò khác nhau như thương nhân, chuyên viên giao dịch FX,... để phát hiện và tận dụng các cơ hội chênh lệch giá nhằm tối đa hoá lợi nhuận. Qua từng giai đoạn, người chơi phải quản lý thanh khoản, chi phí giao dịch và đòn bẩy, đồng thời thích ứng với thị trường ngày càng nhanh hơn, minh bạch hơn và có tính liên kết cao hơn. Điểm khác biệt của game là mô phỏng cách cơ hội arbitrage thay đổi theo sự phát triển của cơ sở hạ tầng và hiệu quả thị trường, giúp người chơi trực quan hoá mối quan hệ giữa information gap, market efficiency và arbitrage opportunities.		
+ ARBIVERSE là một game mô phỏng kinh doanh chênh lệch giá và sự phát triển của thị trường tài chính. Người chơi trải qua 03 giai đoạn phát triển của thị trường, hoá thân thành các vai trò khác nhau như thương nhân, chuyên viên giao dịch FX,... để phát hiện và tận dụng các cơ hội chênh lệch giá nhằm tối đa hoá lợi nhuận. Qua từng giai đoạn, người chơi phải quản lý thanh khoản, chi phí giao dịch và đòn bẩy, đồng thời thích ứng với thị trường ngày càng nhanh hơn, minh bạch hơn và có tính liên kết cao hơn. Điểm khác biệt của game là mô phỏng cách cơ hội arbitrage thay đổi theo sự phát triển của cơ sở hạ tầng và hiệu quả thị trường, giúp người chơi trực quan hoá mối quan hệ giữa information gap, market efficiency và arbitrage opportunities.		
 
 ## Vấn đề sản phẩm giải quyết
 * Lý thuyết xa rời thực tế: Giáo trình thường xem arbitrage là "lợi nhuận phi rủi ro", nhưng ngoài đời chỉ cần trễ lệnh vài giây, phí cao hoặc cạn thanh khoản là người chơi đối mặt với thua lỗ nặng.
@@ -29,7 +29,7 @@ G05
 * Thiên kiến may mắn: Thắng một vài lệnh dễ làm người chơi chủ quan, xem nhẹ việc phân biệt tín hiệu thật với nhiễu và kỷ luật kiểm soát mức độ sụt giảm tài sản.
 
 ## Người dùng mục tiêu
-    Sinh viên chuyên ngành kinh tế và tài chính: Người chơi muốn trực tiếp thực hành các khái niệm lý thuyết như Arbitrage tam giác, Carry Trade, dòng tiền vĩ mô và cấu trúc vi mô thị trường thông qua mô phỏng tương tác. Giảng viên có thể sử dụng game như một công cụ học tập mô phỏng trong lớp học, giúp chuyển các khái niệm tài chính trừu tượng thành trải nghiệm thực tế, cho phép sinh viên trực tiếp thử nghiệm chiến lược, quan sát phản ứng của thị trường và học hỏi từ kết quả lời/lỗ (môn Tài chính quốc tế hoặc Thị trường và định chế tài chính)
+Sinh viên chuyên ngành kinh tế và tài chính: Người chơi muốn trực tiếp thực hành các khái niệm lý thuyết như Arbitrage tam giác, Carry Trade, dòng tiền vĩ mô và cấu trúc vi mô thị trường thông qua mô phỏng tương tác. Giảng viên có thể sử dụng game như một công cụ học tập mô phỏng trong lớp học, giúp chuyển các khái niệm tài chính trừu tượng thành trải nghiệm thực tế, cho phép sinh viên trực tiếp thử nghiệm chiến lược, quan sát phản ứng của thị trường và học hỏi từ kết quả lời/lỗ (môn Tài chính quốc tế hoặc Thị trường và định chế tài chính)
 
 ## Tính năng chính
 * Mô phỏng sự thay đổi của giao dịch arbitrage qua từng thời kỳ: từ giao dịch giữa người với người (Phase 1), đến cross-market arbitrage (Phase 2), đến chiến lược Carry Trade liên thị trường (Phase 3).
