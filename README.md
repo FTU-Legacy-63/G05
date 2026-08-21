@@ -20,7 +20,7 @@ G05
 ARBIVERSE là một game mô phỏng kinh doanh chênh lệch giá và sự phát triển của thị trường tài chính. Người chơi trải qua 03 giai đoạn phát triển của thị trường, hoá thân thành các vai trò khác nhau như thương nhân, chuyên viên giao dịch FX,... để phát hiện và tận dụng các cơ hội chênh lệch giá nhằm tối đa hoá lợi nhuận. Qua từng giai đoạn, người chơi phải quản lý thanh khoản, chi phí giao dịch và đòn bẩy, đồng thời thích ứng với thị trường ngày càng nhanh hơn, minh bạch hơn và có tính liên kết cao hơn. Điểm khác biệt của game là mô phỏng cách cơ hội arbitrage thay đổi theo sự phát triển của cơ sở hạ tầng và hiệu quả thị trường, giúp người chơi trực quan hoá mối quan hệ giữa information gap, market efficiency và arbitrage opportunities.		
 
 ## Vấn đề sản phẩm giải quyết
-Lý thuyết xa rời thực tế: Giáo trình thường xem arbitrage là "lợi nhuận phi rủi ro", nhưng ngoài đời chỉ cần trễ lệnh vài giây, phí cao hoặc cạn thanh khoản là người chơi đối mặt với thua lỗ nặng.
+* Lý thuyết xa rời thực tế: Giáo trình thường xem arbitrage là "lợi nhuận phi rủi ro", nhưng ngoài đời chỉ cần trễ lệnh vài giây, phí cao hoặc cạn thanh khoản là người chơi đối mặt với thua lỗ nặng.
 
 Hiểu lầm về "free money": Người mới thường nhầm Carry Trade là cơ hội thắng chắc, xem nhẹ rủi ro tỷ giá đảo chiều và nguy cơ đòn bẩy quét sạch tài khoản.
 
