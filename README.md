@@ -31,6 +31,21 @@ G05
 ## Người dùng mục tiêu
 Sinh viên chuyên ngành kinh tế và tài chính: Người chơi muốn trực tiếp thực hành các khái niệm lý thuyết như Arbitrage tam giác, Carry Trade, dòng tiền vĩ mô và cấu trúc vi mô thị trường thông qua mô phỏng tương tác. Giảng viên có thể sử dụng game như một công cụ học tập mô phỏng trong lớp học, giúp chuyển các khái niệm tài chính trừu tượng thành trải nghiệm thực tế, cho phép sinh viên trực tiếp thử nghiệm chiến lược, quan sát phản ứng của thị trường và học hỏi từ kết quả lời/lỗ (môn Tài chính quốc tế hoặc Thị trường và định chế tài chính).
 
+## Scope
+
+Phase 1: Information Asymmetry (Thị trường sơ khai)
+* Người chơi tận dụng xuất thân và mở rộng quan hệ để tiếp cận nguồn thông tin, săn cơ hội mua rẻ - bán đắt sản phẩm giữa các thương nhân trong thị trường phân mảnh.
+* Nhận diện các dấu hiệu bất ổn cung cầu để kịp thời thoát vị thế trước khi bong bóng đầu cơ sụp đổ.
+
+Phase 2: Arbitrage Ngoại hối và Đa thị trường (FX Market)
+* Người chơi tính toán và thực thi chiến lược lệch tỷ giá hối đoái giữa các thị trường Onshore/Offshore và chuỗi tỷ giá chéo.
+* Trực tiếp xử lý các ma sát thực tế làm xói mòn lợi nhuận: chênh lệch bid-ask spread, độ trễ khớp lệnh, phí giao dịch và động thái can thiệp từ Ngân hàng Trung ương.
+
+Phase 3: Arbitrage Lãi suất và Rủi ro Vĩ mô (Carry Trade)
+* Người chơi vay đồng tiền lãi suất thấp để phân bổ vào danh mục tài sản sinh lời cao nhằm thu chênh lệch lợi tức ròng.
+* Theo dõi bảng điều khiển rủi ro toàn cầu và học cách sống sót khi thị trường hoảng loạn kích hoạt làn sóng tháo chạy vị thế hàng loạt.
+
+
 ## Tính năng chính
 * Mô phỏng sự thay đổi của giao dịch arbitrage qua từng thời kỳ: từ giao dịch giữa người với người (Phase 1), đến cross-market arbitrage (Phase 2), đến chiến lược Carry Trade liên thị trường (Phase 3).
 
