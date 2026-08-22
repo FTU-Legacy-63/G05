@@ -15,11 +15,11 @@ G05
 | Lê Quỳnh Chi | 2412380012 | Lead Coder (Tasks: Run the core game loop: randomize price generation, trade logic.., dashboards) |
 | Hoàng Hà Uyên | 2412380051 | Coder (Tasks: Interface designer, make features: countdown timers, motion effects, live P&L tracking) |
 
-OUTPUT
-Hoàng Tường Anh: 
+## OUTPUT
+1. Hoàng Tường Anh: 
 Hệ thống tính điểm cuối game (Scoring Logic): Định nghĩa công thức xếp loại trader. Xếp hạng được tính dựa trên điểm trung bình của 3 Phase, chia thành các danh hiệu: "Master Macro Arbitrageur" (>=88 điểm), "Prudent Arbitrageur" (>=75 điểm) và "Opportunistic Speculator" (>=60 điểm). Logic đánh giá từng màn (Debriefing): Xây dựng hệ thống bài học rút ra (Key Lessons) tương ứng với từng hành động của người chơi tại file Giao diện màn hình (interface)
 
-Nguyễn Minh Tâm:
+2. Nguyễn Minh Tâm:
 Historical Data sheet
 The Calculation Engine
 Sheet Phase 1: Công thức tính Lợi nhuận gộp, trừ Phí mở mạng lưới, Phí thuê người đưa thư , Phí lưu kho để ra Lợi nhuận ròng.
@@ -28,18 +28,18 @@ Sheet Phase 3: Công thức tính Carry Yield ròng sau chi phí vốn vay, côn
 Chuẩn hoá tham số cho coder
 Thiết kế Hệ thống Tin tức & Ma trận Nhiễu. Gán trọng số và kênh tác động (Impact Weights & Transmission Channels) cho từng tin tức: xác định rõ tin nào tác động trực tiếp vào Cung/Cầu, Dự trữ ngoại hối hay Chỉ số rủi ro toàn cầu (Global Risk Dashboard), và tin nào không gây biến động cơ bản
 
-Trần Thu Anh:
+3. Trần Thu Anh:
 Thiết kế Vật phẩm: Định giá cơ sở (Base Price) và Hệ số rủi ro (Risk Factor) cho 4 loại hoa Tulip.
 Thiết kế hồ sơ NPC: Thiết kế 3 nhân vật đại diện cho các tầng lớp thị trường (Grower, Merchant, Moneylender).
 Xác định Thông số Cốt lõi: Gắn định mức phí mở khóa (Unlock Cost), chỉ số uy tín yêu cầu (Reputation Required) cho từng NPC.
 Thiết lập sẵn các lệnh Mua/Bán (Bid/Ask), mức giá (Price) và Số lượng (Quantity) cho từng nhân vật.
 Tiến trình thời gian: Viết tóm tắt nội dung cho tổng cộng 9 vòng chơi (3 vòng x 3 Phase), tạo ra một câu chuyện liền mạch dẫn dắt người chơi từ lúc thị trường bình yên đến khi hoảng loạn và sụp đổ.
 
-Lê Quỳnh Chi
+4. Lê Quỳnh Chi
 Xây dựng bộ lưu trữ các biến số của người chơi (Ví dụ: Số tiền đang có, vòng chơi hiện tại, số lượng hoa Tulip đang cầm).
 Viết thuật toán sinh giá tự động (Price Generator) cho mỗi vòng chơi dựa trên các biến số vĩ mô Tâm và Thu Anh đã thiết kế.
 
-Hoàng Hà Uyên
+5. Hoàng Hà Uyên
 Thiết kế các mảnh ghép giao diện độc lập (Ví dụ: Khung thẻ bài NPC thương lái, Bảng điện tử hiển thị tỷ giá nhấp nháy, Nút bấm Mua/Bán).
 Nhận dữ liệu từ Chi (như số dư = 50.000$) và gán vào giao diện. Gắn các hàm Chi đã viết vào các nút bấm (Ví dụ: Bấm nút "Mua" thì tự động gọi hàm khop_Lenh_Mua()).
 Lập trình các hiệu ứng phản hồi người dùng: Hiện thông báo (Toast) màu xanh khi chốt lời thành công, chớp đỏ toàn màn hình khi bị Margin Call.
