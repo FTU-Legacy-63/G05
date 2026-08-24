@@ -2,14 +2,14 @@
 
 ### 1. User → Input → Process → Output → User Action
 
-Access -> Information -> Interpret -> Position -> Market reacts -> P&L/Learn[cite: 1]
+Access -> Information -> Interpret -> Position -> Market reacts -> P&L/Learn
 
-- **Tiếp cận (Access):** Người chơi có thể tiếp cận/kết nối với những nhân vật, thị trường hoặc nguồn dữ liệu nào?[cite: 1]
-- **Thông tin (Information):** Người chơi nhìn thấy những thông tin gì, tốc độ nhận thông tin nhanh ra sao, và lượng tín hiệu nhiễu (noise) lẫn trong đó là bao nhiêu?[cite: 1]
-- **Phân tích (Interpret):** Người chơi tiến hành phân tích và giải mã các yếu tố về cung, cầu, dòng vốn, lãi suất và rủi ro[cite: 1].
-- **Thiết lập vị thế (Position):** Ra quyết định: Mua / Bán / Nắm giữ / Vay mượn / Đầu tư / Phòng vệ rủi ro (Hedge) / Giảm đòn bẩy[cite: 1].
-- **Thị trường phản ứng (Market reacts):** Các hành động của NPC, hành động của người chơi, các sự kiện ngẫu nhiên và điều kiện vĩ mô sẽ cùng tác động làm thay đổi giá cả và thanh khoản trên thị trường[cite: 1].
-- **Lãi lỗ / Bài học (P&L / Learn):** Người chơi ghi nhận mức lợi nhuận hoặc thua lỗ (bằng tiền), qua đó thấu hiểu được lý do cốt lõi khiến quyết định của mình thành công hay thất bại[cite: 1].
+- **Tiếp cận (Access):** Người chơi có thể tiếp cận/kết nối với những nhân vật, thị trường hoặc nguồn dữ liệu nào?
+- **Thông tin (Information):** Người chơi nhìn thấy những thông tin gì, tốc độ nhận thông tin nhanh ra sao, và lượng tín hiệu nhiễu (noise) lẫn trong đó là bao nhiêu?
+- **Phân tích (Interpret):** Người chơi tiến hành phân tích và giải mã các yếu tố về cung, cầu, dòng vốn, lãi suất và rủi ro.
+- **Thiết lập vị thế (Position):** Ra quyết định: Mua / Bán / Nắm giữ / Vay mượn / Đầu tư / Phòng vệ rủi ro (Hedge) / Giảm đòn bẩy.
+- **Thị trường phản ứng (Market reacts):** Các hành động của NPC, hành động của người chơi, các sự kiện ngẫu nhiên và điều kiện vĩ mô sẽ cùng tác động làm thay đổi giá cả và thanh khoản trên thị trường.
+- **Lãi lỗ / Bài học (P&L / Learn):** Người chơi ghi nhận mức lợi nhuận hoặc thua lỗ (bằng tiền), qua đó thấu hiểu được lý do cốt lõi khiến quyết định của mình thành công hay thất bại.
 
 ### 2. Initial Required Information
 
