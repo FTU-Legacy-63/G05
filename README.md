@@ -18,7 +18,6 @@
 ---
 
 ## Mô tả ngắn về sản phẩm
-## Mô tả ngắn về sản phẩm
 
 **ARBIVERSE** là một game mô phỏng kinh doanh chênh lệch giá và sự phát triển của thị trường tài chính. Người chơi sẽ trải qua **03 giai đoạn phát triển** của thị trường, hoá thân thành các vai trò khác nhau (như thương nhân, chuyên viên giao dịch FX,...) để phát hiện và tận dụng các cơ hội chênh lệch giá nhằm tối đa hoá lợi nhuận. 
 
