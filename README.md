@@ -9,11 +9,11 @@
 ## Thành viên
 | Họ tên | Mã sinh viên | Vai trò chính |
 | :--- | :--- | :--- |
-| **Hoàng Tường Anh** | 2413380006 | **Leader, Coordinator & Game Mechanics Designer**<br>*(Tasks: Game flow document, defining rules, limits, and winning conditions for all 3 levels)* |
-| **Nguyễn Minh Tâm** | 2412380044 | **Data Research & Financial Modelling**<br>*(Tasks: Research data of 3 economic crises, do mathematical formulas on Excel: transaction costs, returns, arbitrage, capital...)* |
-| **Trần Thu Anh** | 2412480011 | **Scenario & Financial Modelling**<br>*(Tasks: Create ideas of 3 levels, decide which currency, selling price, purchasing price... and do financial modelling with member 2)* |
-| **Lê Quỳnh Chi** | 2412380012 | **Lead Coder**<br>*(Tasks: Run the core game loop: randomize price generation, trade logic.., dashboards)* |
-| **Hoàng Hà Uyên** | 2412380051 | **Coder / Interface Designer**<br>*(Tasks: Interface designer, make features: countdown timers, motion effects, live P&L tracking)* |
+| **Hoàng Tường Anh** | 2413380006 | Coordinator and Game mechanics designer |
+| **Nguyễn Minh Tâm** | 2412380044 | Data research and Financial metrics |
+| **Trần Thu Anh** | 2412480011 | Content and Logic test |
+| **Lê Quỳnh Chi** | 2412380012 | Backend Developer |
+| **Hoàng Hà Uyên** | 2412380051 | Frontend Developer |
 
 ---
 
