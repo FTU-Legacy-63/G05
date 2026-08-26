@@ -16,7 +16,7 @@ Sinh viên đại học chuyên ngành Tài chính, Ngân hàng, Kinh tế và c
 
 ### Secondary users
 
-Giảng viên, câu lạc bộ tài chính và các tổ chức giáo dục có nhu cầu sử dụng công cụ tương tác để giảng dạy các khái niệm tài chính.
+Câu lạc bộ tài chính và các tổ chức giáo dục có nhu cầu sử dụng công cụ tương tác để giảng dạy các khái niệm về arbitrage.
 
 ## 3. User Task
 
@@ -73,9 +73,6 @@ Users should be able to:
 - Hiểu FX arbitrage và carry trade.
 - Trải nghiệm tác động của thanh khoản, đòn bẩy và rủi ro thị trường.
 - Đưa ra quyết định tài chính tốt hơn trong điều kiện không chắc chắn.
-
-
-
 
 ## 5. Product Statement
 
