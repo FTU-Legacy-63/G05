@@ -31,13 +31,10 @@ Qua từng giai đoạn, người chơi phải quản lý thanh khoản, chi ph�
 ---
 ## Vấn đề sản phẩm giải quyết
 * **Đối với Sinh viên Kinh tế và Tài chính:** Không hiểu arbitrage diễn ra như thế nào trong thực tế, thường chỉ nắm khái niệm đơn giản “mua rẻ – bán đắt” trên sách vở. Trong khi đó, arbitrage thực tế ngày càng phức tạp theo sự phát triển của thị trường và chịu ảnh hưởng mạnh bởi thông tin, chi phí giao dịch, thanh khoản, tỷ giá cùng các yếu tố rủi ro. 
-* **Đối với Giảng viên FTU:** Gặp khó khăn trong việc truyền tải trực quan cho sinh viên cách arbitrage vận hành trong thực tế (đặc biệt trong học phần *Tài chính quốc tế CTTT TCNH - Chương 2: Exchange rate Theory*).
 ---
 
 ## Người dùng mục tiêu
 * **Sinh viên năm 2, 3 chuyên ngành Kinh tế và Tài chính:** Những người chơi muốn trực tiếp thực hành các khái niệm lý thuyết như Arbitrage tam giác, Carry Trade, dòng tiền vĩ mô và cấu trúc vi mô thị trường thông qua môi trường mô phỏng tương tác. 
-* **Giảng viên môn Tài chính quốc tế:** Có thể sử dụng game như một công cụ học tập mô phỏng (EdTech simulation) ngay trong lớp học. Game giúp chuyển đổi các khái niệm tài chính trừu tượng thành trải nghiệm thực tiễn, cho phép sinh viên trực tiếp thử nghiệm chiến lược, quan sát phản ứng của thị trường và rút ra bài học sâu sắc từ kết quả lời/lỗ.
-
 ---
 
 ## Tính năng chính
