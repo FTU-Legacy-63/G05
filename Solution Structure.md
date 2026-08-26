@@ -43,26 +43,25 @@ Access -> Information -> Interpret -> Position -> Market reacts -> P&L/Learn
 So sánh giá cả → Nhận diện cơ hội chênh lệch giá → Tính toán lợi nhuận tiềm năng → Hạch toán chi phí và rủi ro → Ra quyết định giao dịch.
 
 
-### 4. (MVP) Specification
+### 4. Minimum Viable Product (MVP) Specification — Phase 3 Focus
 
-| Câu hỏi | Câu trả lời |
+| Câu hỏi | Chi tiết triển khai MVP |
 | :--- | :--- |
-| **Core user need** | Sinh viên ngành Tài chính – Ngân hàng cần hiểu trực quan cách cơ hội kinh doanh chênh lệch giá (Arbitrage) biến mất khi thị trường tiến hóa, và tại sao các chiến lược giao dịch hiện đại (Carry Trade) luôn tiềm ẩn rủi ro thanh khoản cùng sụp đổ dây chuyền. |
-| **Core input** | - **Origin Selection:** Chọn xuất thân/vị trí ban đầu.<br>- **Information Access:** Chi phí mở mạng lưới quan hệ, mua tin tức, thuê người đưa thư.<br>- **Trade Orders:** Khối lượng mua/bán, cặp tỷ giá arbitrage, hạn mức đòn bẩy vay JPY và tỷ lệ hedging. |
-| **Core logic** | Vòng lặp giao dịch theo từng lượt (Round-based Engine):<br>`Access` ➔ `Information (Signal vs. Noise)` ➔ `Interpret` ➔ `Position (Trade & Leverage)` ➔ `Market Reacts (State-based Engine)` ➔ `P&L & Margin Call / Unwind`. |
-| **Core output** | - **End-of-Round Debrief:** Bảng phân tích nguyên nhân thắng/thua và cảnh báo giải chấp (Margin Call). |
-| **Must include** | - Đủ 3 Phase đại diện cho 3 giai đoạn tiến hóa (Tulip Mania ➔ Thai Baht 1997 ➔ Modern Yen Carry).<br>- Các loại ma sát thị trường thực tế: Bid-Ask spread, chi phí mở tin tức, phí giao dịch, trượt giá.<br>- Hệ thống phân tách tin tức thật (True Signal) và tin tức nhiễu (Noise).<br>- Cơ chế The Unwind và kích hoạt Margin Call/Liquidation ở Phase 3. |
-| **Not included yet** | - Chế độ chơi nhiều người (Multiplayer / PvP).<br>- Bảng xếp hạng trực tuyến (Online Leaderboard).<br>- AI thông minh tự thích ứng cho NPC (chỉ dùng Rule-based).<br>- Kết nối API dữ liệu thị trường thực tế (chỉ dùng Calibrated Sample Data).<br>- Hệ thống xác thực/tài khoản người dùng (chỉ chơi dạng Guest). |
+| **Core user need** | Sinh viên ngành Tài chính – Ngân hàng cần hiểu trực quan cách cơ hội lợi nhuận từ Carry Trade đi kèm với rủi ro tỷ giá và đòn bẩy, đồng thời nhận được bảng tổng kết đa chiều đánh giá kỷ luật giao dịch cùng bài học kinh tế cốt lõi sau cú sốc The Unwind. |
+| **Core input** | - **Cấu hình vị thế:** Khối lượng vay JPY và tỷ lệ phân bổ vào danh mục tài sản sinh lời (US Equities, High-yield Bonds).<br>- **Kiểm soát rủi ro:** Tỷ lệ đòn bẩy (L), tỷ lệ phòng hộ tỷ giá (Hedge Ratio) và quyết định thời điểm thoát vị thế/giảm vay.|
+| **Core logic** | Vòng lặp vĩ mô theo lượt (Round-based Macro Engine):<br>`Tin tức & Tín hiệu vĩ mô (Fed/BOJ Rates)` ➔ `Vào lệnh & Thiết lập đòn bẩy` ➔ `Cú sốc thị trường (The Unwind Squeeze)` ➔ `Ghi nhận chuỗi quyết định` ➔ `Xuất màn hình Tổng kết giai đoạn (Debrief & Summary Dashboard)`. |
+| **Core output** | **Màn hình Tổng kết Giai đoạn (End-of-Phase Debrief Dashboard):**<br>- **4 Chỉ số Hiệu suất Chính (KPI Cards):**<br>  1. *Hệ số Lợi nhuận (P&L Multiplier / Return on Capital)*<br>  2. *Kỷ luật Rủi ro (Risk Discipline Score / 100)*<br>  3. *Lọc Tín hiệu Tin tức (Signal-to-Noise Score / 100)*<br>  4. *Điểm Tổng Giai đoạn (Overall Phase Score / 100)*<br>- **Đánh giá Quyết định Giao dịch của bạn (Decision Debrief Bullets):** Nhận xét chi tiết các nước đi cụ thể (ví dụ: mức độ lạm dụng đòn bẩy khi thị trường đảo chiều, khả năng thoát hàng trước khi bị Margin Call, việc bỏ lỡ cơ hội do thiếu phòng hộ).<br>- **Bài học Kinh tế Cốt lõi (Key Lessons Bullets):** Rút ra 3 nguyên lý tài chính thực tế tương ứng với kịch bản vừa trải qua.|
+| **Must include** | - Cơ chế vay JPY lãi suất thấp và đầu tư tài sản sinh lời cao tại thị trường Mỹ.<br>- Sự kiện cao trào cú sốc "The Unwind" (lãi suất BOJ đảo chiều, JPY tăng vọt buộc giải chấp hàng loạt).<br>- Hệ thống logic tính điểm cho 4 thẻ chỉ số (Lợi nhuận, Rủi ro, Lọc tin tức, Điểm tổng).<br>- Bảng tổng kết giao diện trực quan hiển thị đánh giá quyết định và bài học kinh tế.|
+| **Not included yet** | - Phase 1 (Tulip Mania) và Phase 2 (Thai Baht 1997).<br>- Bảng theo dõi số dư chi tiết từng giây trong lúc chơi.<br>- Chế độ chơi nhiều người (Multiplayer / PvP).<br>- Bảng xếp hạng trực tuyến (Online Leaderboard).<br>- Kết nối API dữ liệu thị trường trực tiếp. |
 
 ---
 
 ### Scope Cutting Verification
-- **Output quan trọng nhất:** Bảng theo dõi NAV và màn hình phân tích nguyên nhân Lời/Lỗ (Live NAV & Debrief Summary).
-- **Tính năng lược bỏ:** Bỏ minigame trồng hoa ở Phase 1, bỏ cây hội thoại NPC phức tạp, bỏ đồ họa 3D.
-- **Dữ liệu:** Sử dụng 100% Calibrated Sample Data trên file cấu hình/JSON thay vì gọi API ngoài.
-- **Phân khúc người dùng:** Chỉ tập trung duy nhất vào Sinh viên khối ngành Kinh tế / Tài chính – Ngân hàng.
-- **Hệ thống phụ:** Cắt bỏ hoàn toàn Account System, Chatbot AI và các Dashboard thống kê phụ.
 
+* **Output quan trọng nhất:** Màn hình Dashboard Tổng kết Màn chơi (End-of-Phase Debrief Dashboard) với 4 thẻ chỉ số điểm và 2 khối nội dung: *Đánh giá quyết định giao dịch* & *Bài học kinh tế cốt lõi*.
+* **Tính năng tinh gọn:** Lược bỏ toàn bộ các màn hình theo dõi số dư phức tạp; chuyển toàn bộ dữ liệu giao dịch thành các nhận xét và chỉ số đánh giá cô đọng tại màn hình kết thúc.
+* **Dữ liệu:** Sử dụng kịch bản vĩ mô định sẵn (Calibrated Macro Scenarios) phản ánh cú sốc đảo chiều dòng tiền Carry Trade.
+* **Mục tiêu sản phẩm:** Cung cấp trải nghiệm mô phỏng ngắn gọn nhưng đọng lại bài học thực tế sâu sắc cho sinh viên.
 
 ### 5. Fallback / Out of Scope
 
