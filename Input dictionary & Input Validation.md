@@ -214,7 +214,9 @@ Nếu cuối phase vẫn còn nợ, hệ thống tự động yêu cầu tất t
 **4. PHASE 2 — THAI BAHT CRISIS 1997**
 
 Phase 2 chuyển từ chênh lệch giá giữa các trader sang chênh lệch giá giữa các **thị trường FX**.
+
 Hai loại cơ hội chính:
+
 **Cross-market arbitrage**
 So sánh cùng một cặp tiền giữa:
 
@@ -223,11 +225,18 @@ So sánh cùng một cặp tiền giữa:
 - USD/offshore.
 
 **Triangular arbitrage**
+
 Ví dụ:
+
 **USD → THB → SGD → USD**
+
 Raw design xác định Phase 2 sử dụng cả cross-market và triangular arbitrage, đồng thời đưa bid–ask, liquidity và execution vào gameplay.
+
 Người chơi **không giữ vị thế FX sang round sau mà phải đóng vị thế trước khi round sau bắt đầu (hệ thống tự động đóng khi ấn kết thúc)**.
+
 Mỗi round là một tập hợp báo giá và cơ hội mới.
+
+
 **4.1. Dữ liệu cốt lõi — Phase 2**
 
 | **Tên dữ liệu**               | **Ý nghĩa**                  | **Kiểu**     | **Ví dụ**  | **Kiểm tra**                | **Kết quả bị ảnh hưởng**  |
@@ -248,18 +257,24 @@ Mỗi round là một tập hợp báo giá và cơ hội mới.
 Các thông tin về chính sách và bảo vệ tỷ giá chỉ đóng vai trò **bối cảnh lịch sử/problem evidence**, không phải một mechanic player trực tiếp điều khiển.
 
 **4.2. Chi phí Phase 2**
+
 Phase 2 có ba nhóm chi phí trực tiếp:
+
 **1. Chênh lệch bid–ask**
 Không được tính bằng mid-rate.
 Player phải mua tại **ask** và bán tại **bid**.
+
 **2. Phí giao dịch**
 **transaction\_fee = trade\_value × base\_transaction\_fee × role\_multiplier**
 Investor có lợi thế ở phần này.
+
 **3. Chi phí vay vốn**
 Nếu sử dụng tiền vay:
 **funding\_cost = current\_debt × borrowing\_rate**
 Lãi được tính theo round.
+
 Ngoài ra, **slippage** và thanh khoản có thể khiến lợi nhuận thực tế thấp hơn lợi nhuận nhìn thấy ban đầu.
+
 FX thực tế chủ yếu là thị trường OTC, phân tán và dealer đóng vai trò trung gian, vì vậy việc Phase 2 đưa nhiều nguồn quote và execution friction vào game có cơ sở thực tế.
 
 **4.3. Dữ liệu do người chơi nhập — Phase 2**
@@ -276,12 +291,16 @@ FX thực tế chủ yếu là thị trường OTC, phân tán và dealer đóng
 | selected\_information\_id | Gói thông tin được chọn     |
 
 **4.4. Biến hệ thống tự tính — Phase 2**
+
 **Cross-market gross profit**
 gross\_profit = (sell\_bid − buy\_ask) × quantity
+
 **Phí thực hiện**
 total\_transaction\_fee = Σ fee của từng leg
+
 **Lợi nhuận ròng**
 net\_profit = gross\_profit − transaction\_fee − funding\_cost − slippage\_cost
+
 **Triangular arbitrage**
 Hệ thống lần lượt chuyển đổi:
 Currency 1 → Currency 2 → Currency 3 → Currency 1
@@ -295,7 +314,9 @@ Sau khi dùng đúng bid/ask và trừ toàn bộ chi phí:
 Phase 3 không còn là arbitrage thông thường.
 Người chơi phải thực hiện các bước chơi như sau:
 **Vay JPY → đổi sang USD → phân bổ vào nhiều tài sản → nhận lợi suất → bán tài sản → đổi USD về JPY → trả nợ.**
-Carry Trade khai thác chênh lệch giữa chi phí funding thấp và lợi suất tài sản cao, nhưng player phải chịu rủi ro tỷ giá, tài sản và đòn bẩy. BIS cũng mô tả carry trade là vị thế cross-currency thường sử dụng leverage, vay đồng tiền có lãi suất thấp để mua tài sản có lợi suất cao và nhạy cảm với tỷ giá, lãi suất và volatility.
+
+Carry Trade khai thác chênh lệch giữa chi phí funding thấp và lợi suất tài sản cao, nhưng player phải chịu rủi ro tỷ giá, tài sản và đòn bẩy. 
+BIS cũng mô tả carry trade là vị thế cross-currency thường sử dụng leverage, vay đồng tiền có lãi suất thấp để mua tài sản có lợi suất cao và nhạy cảm với tỷ giá, lãi suất và volatility.
 
 **5.1. Dữ liệu cốt lõi — Phase 3**
 
@@ -327,18 +348,22 @@ sau đó mở rộng nếu cần.
 Raw design cũng định hướng Phase 3 sử dụng global rates, FX, funding và nhiều loại asset thay vì một tài sản duy nhất.
 
 **5.2. Bốn loại chi phí trực tiếp — Phase 3**
+
 **1. Chi phí vay JPY**
 funding\_cost = JPY debt × funding rate
 Lãi được tự động thanh toán cuối mỗi round.
+
 **2. Chi phí chuyển đổi ngoại tệ**
 Player chịu bid–ask spread khi:
 **JPY → USD**
 và khi:
 **USD → JPY**
 Không tạo thêm một loại phí FX giả nếu không cần thiết; spread đã phản ánh friction cơ bản.        
+
 **3. Chi phí mua/bán tài sản**
 asset\_transaction\_cost = trade\_value × base\_fee × role\_multiplier
 Đây là nơi lợi thế của Investor tiếp tục phát huy.
+
 **4. Chi phí mua thông tin**
 Thông tin bổ sung trong Phase 3 có thể liên quan đến:
 
@@ -352,16 +377,21 @@ Thông tin bổ sung trong Phase 3 có thể liên quan đến:
 Information Hunter tiếp tục có lợi thế về chi phí tiếp cận thông tin.
 
 **5.3. Những yếu tố không được gọi là “cost”**
+
 **FX Gain/Loss**
 JPY tăng giá hoặc giảm giá tạo lãi/lỗ tỷ giá.
 Đây là **market risk**, không phải transaction cost.
+
 **Asset Gain/Loss**
 Giá tài sản tăng/giảm tạo P&L danh mục.
 Đây là **investment return**, không phải cost.
+
 **Leverage**
 Đòn bẩy là hệ số khuếch đại exposure, không phải cost.
+
 **Margin**
 Margin là constraint về vốn, không phải cost.
+
 **Liquidity**
 Liquidity ảnh hưởng khả năng thoát vị thế và giá thực hiện, không phải một khoản phí cố định.
 
@@ -381,16 +411,22 @@ Liquidity ảnh hưởng khả năng thoát vị thế và giá thực hiện, k
 Σ allocation = 100%
 
 **5.5. Biến hệ thống tự tính — Phase 3**
+
 **Lợi suất danh mục**
 portfolio\_return = Σ(asset\_weight × asset\_return)
+
 **Chi phí vốn JPY**
 funding\_cost\_jpy = JPY debt × funding\_rate
+
 **Chi phí giao dịch tài sản**
 asset\_transaction\_cost = Σ(trade\_value × fee × role\_multiplier)
+
 **Giá trị cuối cùng bằng JPY**
 ending\_JPY = ending\_USD × USDJPY\_bid
+
 **Nghĩa vụ nợ**
 debt\_due = JPY principal + funding\_cost
+
 **P&L Carry Trade**
 net\_carry\_P&L = ending\_JPY − debt\_due − transaction\_costs
 
