@@ -1,8 +1,6 @@
 # ARBIVERSE — CHECKPOINT TUẦN 3
 
-**1. Mục tiêu Tuần 3**
-
-Mục tiêu của Tuần 3 là xác định đầy đủ dữ liệu cần thiết để Arbiverse có thể vận hành, kiểm tra tính khả thi của các nguồn dữ liệu và chuẩn bị cấu trúc dữ liệu đủ rõ để chuyển sang xây dựng logic tài chính hoàn chỉnh ở Tuần 4.
+**1. Mô tả chung về Arbiverse**
 
 Game đưa người chơi qua ba giai đoạn:
 
