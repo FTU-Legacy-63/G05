@@ -40,6 +40,7 @@ Lợi thế của ba vai được thiết kế theo ba nguồn lợi thế khác
 ***Lưu ý: Lợi thế này được giữ về bản chất xuyên ba phase, nhưng mức độ tác động thay đổi theo cấu trúc thị trường.***
 
 **3. PHASE 1 — INFORMATION ASYMMETRY / PRE-ARBITRAGE**
+
 Phase 1 mô phỏng một thị trường chưa có sàn giao dịch tập trung.
 Game tạo sẵn các trader như:
 
@@ -51,6 +52,7 @@ Người chơi phải tự quan sát các báo giá để tìm:
 **Mua rẻ ở trader này → bán cao cho trader khác.**
 Phase 1 chỉ sử dụng **một loại tulip**, nhưng giá mua, giá bán và số lượng của từng trader khác nhau.
 Sau mỗi round, báo giá và khối lượng của các trader thay đổi theo trạng thái thị trường và quy tắc mô phỏng.
+
 **3.1. Dữ liệu cốt lõi — Phase 1**
 
 | **Tên dữ liệu**               | **Ý nghĩa**                           | **Kiểu** | **Đơn vị**    | **Ví dụ/Nguồn**                            | **Kiểm tra**          | **Kết quả bị ảnh hưởng**       |
@@ -66,6 +68,7 @@ Sau mỗi round, báo giá và khối lượng của các trader thay đổi the
 | max\_trades\_per\_round       | Số giao dịch mua/bán tối đa mỗi round | integer  | giao dịch     | 3                                          | = 3                   | Số hành động giao dịch         |
 
 **Lưu ý**
+
 **Phase 1 không có phí giao dịch.**
 Do chưa có sàn giao dịch hiện đại, các chi phí trực tiếp được mô phỏng trong Phase 1 chỉ gồm:
 
@@ -87,6 +90,7 @@ Lợi thế chi phí giao dịch của Investor bắt đầu phát huy rõ từ 
 
 Các con số trên là **tham số cân bằng do nhóm tự thiết kế**, không phải dữ liệu lịch sử. 
 Chúng sẽ được kiểm tra lại bằng playtest.
+
 **3.3. Dữ liệu do người chơi nhập — Phase 1**
 
 | **Tên dữ liệu**           | **Ý nghĩa**                            | **Kiểu** | **Đơn vị**    | **Ví dụ** | **Khoảng hợp lệ**               |
@@ -104,6 +108,7 @@ Mua thông tin và vay vốn **không được tính vào giới hạn ba giao d
 
 
 **3.4. Dữ liệu gói thông tin — Phase 1**
+
 Mỗi round:
 
 - tất cả người chơi nhận **1–2 thông tin miễn phí**;
@@ -124,6 +129,7 @@ Mỗi round:
 
 Giá thực tế:
 **Chi phí thông tin = Giá cơ sở × Hệ số giá tin theo role**
+
 Ví dụ gói tin giá 20:
 
 - Speculator: 30
@@ -149,6 +155,7 @@ Ví dụ:
 | C          | SELL     | 4            | 48      |
 
 Người chơi có thể phát hiện cơ hội:
+
 **Mua từ A tại 40 → bán cho B tại 55.**
 
 **3.6. Trạng thái thị trường — Phase 1**
@@ -165,6 +172,7 @@ Người chơi có thể phát hiện cơ hội:
 Sáu biến trên đều được sử dụng để làm thay đổi báo giá, số lượng lệnh và trạng thái của market qua từng round. Raw design cũng xác định đây là các biến chính của market state Phase 1.
 
 **3.7. Các biến hệ thống tự tính — Phase 1**
+
 Người chơi **không nhập** các biến sau.
 **Chi phí thông tin**
 actual\_information\_cost = base\_information\_cost × information\_cost\_multiplier
@@ -180,6 +188,7 @@ trades\_remaining = 3 − trades\_used
 net\_worth = cash + inventory\_value − current\_debt
 
 **3.8. Quy tắc vay vốn — Phase 1**
+
 Để giảm độ phức tạp code trong MVP, **hạn mức vay được giữ cố định theo role trong từng phase**, không tự động thay đổi theo equity.
 Điều kiện:
 current\_debt + borrow\_amount ≤ max\_borrow\_amount
@@ -194,6 +203,7 @@ Người chơi có thể:
 Nếu cuối phase vẫn còn nợ, hệ thống tự động yêu cầu tất toán.
 
 **4. PHASE 2 — THAI BAHT CRISIS 1997**
+
 Phase 2 chuyển từ chênh lệch giá giữa các trader sang chênh lệch giá giữa các **thị trường FX**.
 Hai loại cơ hội chính:
 **Cross-market arbitrage**
@@ -272,6 +282,7 @@ Sau khi dùng đúng bid/ask và trừ toàn bộ chi phí:
 - nếu final\_amount ≤ initial\_amount → không profitable.
 
 **5. PHASE 3 — YEN CARRY TRADE / MODERN GLOBAL MARKET**
+
 Phase 3 không còn là arbitrage thông thường.
 Người chơi phải thực hiện các bước chơi như sau:
 **Vay JPY → đổi sang USD → phân bổ vào nhiều tài sản → nhận lợi suất → bán tài sản → đổi USD về JPY → trả nợ.**
