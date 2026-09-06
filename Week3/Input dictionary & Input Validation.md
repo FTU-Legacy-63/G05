@@ -16,7 +16,7 @@ Ba phase không phải ba game tách biệt. Chúng thể hiện quá trình th�
 
 **Con người → Thị trường → Hệ thống**
 
-Khi thị trường ngày càng kết nối và minh bạch hơn, cơ hội kiếm lợi nhuận từ chênh lệch đơn giản giảm dần và người chơi phải xử lý thêm các yếu tố như chi phí giao dịch, chi phí vốn, tỷ giá, thanh khoản, đòn bẩy và rủi ro hệ thống. Đây cũng là backbone của game concept hiện tại.
+Khi thị trường ngày càng kết nối và minh bạch hơn, cơ hội kiếm lợi nhuận từ chênh lệch đơn giản giảm dần và người chơi phải xử lý thêm các yếu tố như chi phí giao dịch, chi phí vốn, tỷ giá, thanh khoản, đòn bẩy và rủi ro hệ thống.
 
 Người chơi chọn **một trong ba vai ngay từ đầu và giữ nguyên vai xuyên suốt game**:
 
