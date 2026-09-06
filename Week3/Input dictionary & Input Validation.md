@@ -1,6 +1,8 @@
 **ARBIVERSE — CHECKPOINT TUẦN 3**
 
-**Câu hỏi trung tâm:** Sản phẩm cần thông tin gì để hoạt động, thông tin đó đến từ đâu và có đủ khả thi để sử dụng hay không?
+**Câu hỏi trung tâm:** 
+
+Sản phẩm cần thông tin gì để hoạt động, thông tin đó đến từ đâu và có đủ khả thi để sử dụng hay không?
 
 **1. Mục tiêu Tuần 3**
 
