@@ -9,8 +9,10 @@ Game đưa người chơi qua ba giai đoạn:
 **Phase 1 — Information Asymmetry / Pre-Arbitrage**
 → **Phase 2 — Thai Baht Crisis 1997**
 → **Phase 3 — Yen Carry Trade / Modern Global Market**
+
 Ba phase không phải ba game tách biệt. Chúng thể hiện quá trình thị trường phát triển từ:
 **Con người → Thị trường → Hệ thống**
+
 Khi thị trường ngày càng kết nối và minh bạch hơn, cơ hội kiếm lợi nhuận từ chênh lệch đơn giản giảm dần và người chơi phải xử lý thêm các yếu tố như chi phí giao dịch, chi phí vốn, tỷ giá, thanh khoản, đòn bẩy và rủi ro hệ thống. Đây cũng là backbone của game concept hiện tại.
 Người chơi chọn **một trong ba vai ngay từ đầu và giữ nguyên vai xuyên suốt game**:
 
