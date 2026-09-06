@@ -30,9 +30,9 @@ Người chơi chọn **một trong ba vai ngay từ đầu và giữ nguyên va
 
 Tài sản và vốn được **reset về vốn ban đầu khi chuyển phase**, do mỗi phase mô phỏng một thị trường và loại tài sản khác nhau. Tuy nhiên, vai của người chơi và lợi thế cốt lõi của vai được giữ nguyên.
 
+___
 
-
-**2. INPUT DICTIONARY**
+# INPUT DICTIONARY
 
 **2.1. Cấu hình vai người chơi**
 Lợi thế của ba vai được thiết kế theo ba nguồn lợi thế khác nhau:
