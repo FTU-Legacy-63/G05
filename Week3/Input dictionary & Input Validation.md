@@ -5,11 +5,13 @@
 Mục tiêu của Tuần 3 là xác định đầy đủ dữ liệu cần thiết để Arbiverse có thể vận hành, kiểm tra tính khả thi của các nguồn dữ liệu và chuẩn bị cấu trúc dữ liệu đủ rõ để chuyển sang xây dựng logic tài chính hoàn chỉnh ở Tuần 4.
 
 Game đưa người chơi qua ba giai đoạn:
+
 **Phase 1 — Information Asymmetry / Pre-Arbitrage**
 → **Phase 2 — Thai Baht Crisis 1997**
 → **Phase 3 — Yen Carry Trade / Modern Global Market**
 
 Ba phase không phải ba game tách biệt. Chúng thể hiện quá trình thị trường phát triển từ:
+
 **Con người → Thị trường → Hệ thống**
 
 Khi thị trường ngày càng kết nối và minh bạch hơn, cơ hội kiếm lợi nhuận từ chênh lệch đơn giản giảm dần và người chơi phải xử lý thêm các yếu tố như chi phí giao dịch, chi phí vốn, tỷ giá, thanh khoản, đòn bẩy và rủi ro hệ thống. Đây cũng là backbone của game concept hiện tại.
@@ -23,7 +25,8 @@ Người chơi chọn **một trong ba vai ngay từ đầu và giữ nguyên va
 Tài sản và vốn được **reset về vốn ban đầu khi chuyển phase**, do mỗi phase mô phỏng một thị trường và loại tài sản khác nhau. Tuy nhiên, vai của người chơi và lợi thế cốt lõi của vai được giữ nguyên.
 
 
-# 2. INPUT DICTIONARY
+# INPUT DICTIONARY
+
 **Cấu hình vai người chơi**
 Lợi thế của ba vai được thiết kế theo ba nguồn lợi thế khác nhau:
 
