@@ -7,7 +7,9 @@ Mục tiêu của Tuần 3 là xác định đầy đủ dữ liệu cần thi�
 Game đưa người chơi qua ba giai đoạn:
 
 **Phase 1 — Information Asymmetry / Pre-Arbitrage**
+
 → **Phase 2 — Thai Baht Crisis 1997**
+
 → **Phase 3 — Yen Carry Trade / Modern Global Market**
 
 Ba phase không phải ba game tách biệt. Chúng thể hiện quá trình thị trường phát triển từ:
