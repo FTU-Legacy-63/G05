@@ -1,4 +1,4 @@
-**ARBIVERSE — CHECKPOINT TUẦN 3**
+# ARBIVERSE — CHECKPOINT TUẦN 3
 
 **Câu hỏi trung tâm:** 
 
