@@ -175,22 +175,22 @@ Sáu biến trên đều được sử dụng để làm thay đổi báo giá, 
 
 Người chơi **không nhập** các biến sau.
 
-**Chi phí thông tin**
+**Chi phí thông tin:**
 actual\_information\_cost = base\_information\_cost × information\_cost\_multiplier
 
-**Chi phí vay mỗi round**
+**Chi phí vay mỗi round:**
 round\_interest = current\_debt × borrowing\_rate
 
-**Hạn mức vay còn lại**
+**Hạn mức vay còn lại:**
 remaining\_borrow\_capacity = max\_borrow\_amount − current\_debt
 
-**Giá trị giao dịch**
+**Giá trị giao dịch:**
 trade\_value = quote\_price × trade\_quantity
 
-**Số giao dịch còn lại**
+**Số giao dịch còn lại:**
 trades\_remaining = 3 − trades\_used
 
-**Giá trị tài sản ròng**
+**Giá trị tài sản ròng:**
 net\_worth = cash + inventory\_value − current\_debt
 
 **3.8. Quy tắc vay vốn — Phase 1**
