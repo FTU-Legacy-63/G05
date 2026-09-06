@@ -1,20 +1,15 @@
 # ARBIVERSE — CHECKPOINT TUẦN 3
 
-
 **1. Mục tiêu Tuần 3**
 
 Mục tiêu của Tuần 3 là xác định đầy đủ dữ liệu cần thiết để Arbiverse có thể vận hành, kiểm tra tính khả thi của các nguồn dữ liệu và chuẩn bị cấu trúc dữ liệu đủ rõ để chuyển sang xây dựng logic tài chính hoàn chỉnh ở Tuần 4.
 
 Game đưa người chơi qua ba giai đoạn:
-
 **Phase 1 — Information Asymmetry / Pre-Arbitrage**
-
 → **Phase 2 — Thai Baht Crisis 1997**
-
 → **Phase 3 — Yen Carry Trade / Modern Global Market**
 
 Ba phase không phải ba game tách biệt. Chúng thể hiện quá trình thị trường phát triển từ:
-
 **Con người → Thị trường → Hệ thống**
 
 Khi thị trường ngày càng kết nối và minh bạch hơn, cơ hội kiếm lợi nhuận từ chênh lệch đơn giản giảm dần và người chơi phải xử lý thêm các yếu tố như chi phí giao dịch, chi phí vốn, tỷ giá, thanh khoản, đòn bẩy và rủi ro hệ thống. Đây cũng là backbone của game concept hiện tại.
@@ -27,11 +22,9 @@ Người chơi chọn **một trong ba vai ngay từ đầu và giữ nguyên va
 
 Tài sản và vốn được **reset về vốn ban đầu khi chuyển phase**, do mỗi phase mô phỏng một thị trường và loại tài sản khác nhau. Tuy nhiên, vai của người chơi và lợi thế cốt lõi của vai được giữ nguyên.
 
-___
 
-# INPUT DICTIONARY
-
-**1. Cấu hình vai người chơi**
+# 2. INPUT DICTIONARY
+**Cấu hình vai người chơi**
 Lợi thế của ba vai được thiết kế theo ba nguồn lợi thế khác nhau:
 
 | **Vai**                | **Lợi thế cốt lõi**                     |
@@ -42,398 +35,160 @@ Lợi thế của ba vai được thiết kế theo ba nguồn lợi thế khác
 
 ***Lưu ý: Lợi thế này được giữ về bản chất xuyên ba phase, nhưng mức độ tác động thay đổi theo cấu trúc thị trường.***
 
-**2. PHASE 1 — INFORMATION ASYMMETRY / PRE-ARBITRAGE**
-
-Phase 1 mô phỏng một thị trường chưa có sàn giao dịch tập trung.
-Game tạo sẵn các trader như:
-
-- Trader A muốn bán X tulip tại giá Y;
-- Trader B muốn mua X tulip tại giá Y1;
-- Trader C có muốn mua X tulip tại giá Y2.
-
-Người chơi phải tự quan sát các báo giá để tìm:
-**Mua rẻ ở trader này → bán cao cho trader khác.**
-Phase 1 chỉ sử dụng **một loại tulip**, nhưng giá mua, giá bán và số lượng của từng trader khác nhau.
-Sau mỗi round, báo giá và khối lượng của các trader thay đổi theo trạng thái thị trường và quy tắc mô phỏng.
-
-**2.1. Dữ liệu cốt lõi — Phase 1**
-
-| **Tên dữ liệu**               | **Ý nghĩa**                           | **Kiểu** | **Đơn vị**    | **Ví dụ/Nguồn**                            | **Kiểm tra**          | **Kết quả bị ảnh hưởng**       |
-| ----------------------------- | ------------------------------------- | -------- | ------------- | ------------------------------------------ | --------------------- | ------------------------------ |
-| player\_role                  | Vai người chơi                        | enum     | –             | Speculator / Investor / Information Hunter | Bắt buộc; thuộc 3 vai | Toàn bộ cấu hình role          |
-| initial\_cash                 | Tiền mặt ban đầu                      | number   | game currency | 100 — nhóm tự thiết kế                     | > 0                   | Khả năng mua tài sản/thông tin |
-| max\_borrow\_amount           | Hạn mức vay tối đa                    | number   | game currency | 200 / 50 / 100                             | ≥ 0                   | Khả năng mở rộng vốn           |
-| max\_leverage                 | Đòn bẩy tối đa                        | number   | lần           | 3 / 1,5 / 2                                | ≥ 1                   | Quy mô vị thế tối đa           |
-| borrowing\_rate               | Lãi suất vay theo mỗi round           | number   | %/round       | 6% / 4% / 5%                               | ≥ 0                   | Chi phí vay, P&L               |
-| current\_debt                 | Dư nợ hiện tại                        | number   | game currency | 50                                         | 0 ≤ debt ≤ hạn mức    | Lãi vay, khả năng vay thêm     |
-| information\_cost\_multiplier | Hệ số giá tin theo role               | number   | lần           | 1,5 / 1 / 0,5                              | > 0                   | Giá tin thực tế                |
-| total\_rounds                 | Tổng số round                         | integer  | round         | 3                                          | = 3                   | Tiến trình phase               |
-| max\_trades\_per\_round       | Số giao dịch mua/bán tối đa mỗi round | integer  | giao dịch     | 3                                          | = 3                   | Số hành động giao dịch         |
-
-**Lưu ý**
-
-**Phase 1 không có phí giao dịch.**
-Do chưa có sàn giao dịch hiện đại, các chi phí trực tiếp được mô phỏng trong Phase 1 chỉ gồm:
-
-1. **chi phí vay vốn;**
-2. **chi phí mua thông tin.**
-
-Lợi thế chi phí giao dịch của Investor bắt đầu phát huy rõ từ Phase 2.
-
-**2.2. Cấu hình ba vai — Phase 1**
-
-| **Thông số**            | **Speculator** | **Investor**         | **Information Hunter** |
-| ----------------------- | -------------- | -------------------- | ---------------------- |
-| Tiền ban đầu            | 100            | 100                  | 100                    |
-| Hạn mức vay             | **200**        | 50                   | 100                    |
-| Đòn bẩy tối đa          | **3x**         | 1,5x                 | 2x                     |
-| Lãi suất vay/round      | 6%             | **4%**               | 5%                     |
-| Hệ số giá mua thông tin | **1,5x**       | 1x                   | **0,5x**               |
-| Lợi thế chính Phase 1   | Vốn và đòn bẩy | Chi phí vốn thấp hơn | Thông tin rẻ           |
-
-Các con số trên là **tham số cân bằng do nhóm tự thiết kế**, không phải dữ liệu lịch sử. 
-Chúng sẽ được kiểm tra lại bằng playtest.
-
-**2.3. Dữ liệu do người chơi nhập — Phase 1**
-
-| **Tên dữ liệu**           | **Ý nghĩa**                            | **Kiểu** | **Đơn vị**    | **Ví dụ** | **Khoảng hợp lệ**               |
-| ------------------------- | -------------------------------------- | -------- | ------------- | --------- | ------------------------------- |
-| buy\_information          | Có mua gói thông tin trả phí hay không | boolean  | –             | YES       | YES / NO                        |
-| selected\_information\_id | Gói thông tin muốn mua                 | string   | –             | INFO\_01  | Phải khả dụng trong round       |
-| borrow\_amount            | Số tiền muốn vay thêm                  | number   | game currency | 50        | Không vượt hạn mức còn lại      |
-| repay\_amount             | Số tiền muốn trả nợ                    | number   | game currency | 20        | Không vượt dư nợ và tiền mặt    |
-| trade\_action             | Hành động giao dịch                    | enum     | –             | BUY       | BUY / SELL / HOLD               |
-| trade\_quantity           | Số tulip muốn giao dịch                | integer  | tulip         | 2         | > 0 và đủ điều kiện             |
-| selected\_trader\_id      | Trader được lựa chọn                   | string   | –             | TRADER\_A | Trader tồn tại và đang có quote |
-
-Một lần BUY hoặc SELL được tính là **một giao dịch**.
-Mua thông tin và vay vốn **không được tính vào giới hạn ba giao dịch mỗi round**.
-
-
-**2.4. Dữ liệu gói thông tin — Phase 1**
-
-Mỗi round:
-
-- tất cả người chơi nhận **1–2 thông tin miễn phí**;
-- thông tin miễn phí có thể là tín hiệu thật hoặc noise;
-- người chơi được mua tối đa **1 gói thông tin trả phí**;
-- thông tin trả phí **vẫn có thể sai hoặc chứa noise**;
-- Information Hunter không được đảm bảo nhận tin chính xác hơn, mà chỉ có **lợi thế về giá mua**.
-
-| **Tên dữ liệu**           | **Ý nghĩa**             | **Kiểu** | **Ví dụ**                   | **Kiểm tra**               |
-| ------------------------- | ----------------------- | -------- | --------------------------- | -------------------------- |
-| information\_id           | Mã tin                  | string   | INFO\_01                    | Không trùng                |
-| information\_type         | Loại thông tin          | enum     | SUPPLY                      | Thuộc danh sách định trước |
-| information\_source\_type | Miễn phí hay trả phí    | enum     | PAID                        | FREE / PAID                |
-| base\_information\_cost   | Giá cơ sở               | number   | 20                          | ≥ 0                        |
-| information\_content      | Nội dung tin            | string   | Nguồn cung có dấu hiệu giảm | Không rỗng                 |
-| signal\_quality           | Tín hiệu thật hay noise | enum     | REAL                        | REAL / NOISE               |
-| available\_round          | Round tin xuất hiện     | integer  | 2                           | 1–3                        |
-
-Giá thực tế:
-**Chi phí thông tin = Giá cơ sở × Hệ số giá tin theo role**
-
-Ví dụ gói tin giá 20:
-
-- Speculator: 30
-- Investor: 20
-- Information Hunter: 10
-
-**2.5. Dữ liệu trader — Phase 1**
-
-| **Tên dữ liệu**     | **Ý nghĩa**                    | **Kiểu** | **Đơn vị**          | **Ví dụ** |
-| ------------------- | ------------------------------ | -------- | ------------------- | --------- |
-| trader\_id          | Mã trader                      | string   | –                   | TRADER\_A |
-| order\_side         | Trader muốn mua hay bán        | enum     | –                   | SELL      |
-| quote\_price        | Giá trader đưa ra              | number   | game currency/tulip | 40        |
-| available\_quantity | Số lượng trader muốn giao dịch | integer  | tulip               | 5         |
-| round               | Round báo giá có hiệu lực      | integer  | round               | 1         |
-
-Ví dụ:
-
-| **Trader** | **Lệnh** | **Số lượng** | **Giá** |
-| ---------- | -------- | ------------ | ------- |
-| A          | SELL     | 5            | 40      |
-| B          | BUY      | 3            | 55      |
-| C          | SELL     | 4            | 48      |
-
-Người chơi có thể phát hiện cơ hội:
-
-**Mua từ A tại 40 → bán cho B tại 55.**
-
-**2.6. Trạng thái thị trường — Phase 1**
-
-| **Tên dữ liệu**    | **Ý nghĩa**                 | **Khoảng** |
-| ------------------ | --------------------------- | ---------- |
-| supply\_level      | Mức cung                    | 0–100      |
-| demand\_level      | Mức cầu                     | 0–100      |
-| speculation\_level | Mức đầu cơ                  | 0–100      |
-| credit\_condition  | Mức độ dễ tiếp cận tín dụng | 0–100      |
-| market\_confidence | Niềm tin                    | 0–100      |
-| market\_liquidity  | Khả năng tìm người mua/bán  | 0–100      |
-
-Sáu biến trên đều được sử dụng để làm thay đổi báo giá, số lượng lệnh và trạng thái của market qua từng round. Raw design cũng xác định đây là các biến chính của market state Phase 1.
-
-**2.7. Các biến hệ thống tự tính — Phase 1**
-
-Người chơi **không nhập** các biến sau.
-
-**Chi phí thông tin:**
-actual\_information\_cost = base\_information\_cost × information\_cost\_multiplier
-
-**Chi phí vay mỗi round:**
-round\_interest = current\_debt × borrowing\_rate
-
-**Hạn mức vay còn lại:**
-remaining\_borrow\_capacity = max\_borrow\_amount − current\_debt
-
-**Giá trị giao dịch:**
-trade\_value = quote\_price × trade\_quantity
-
-**Số giao dịch còn lại:**
-trades\_remaining = 3 − trades\_used
-
-**Giá trị tài sản ròng:**
-net\_worth = cash + inventory\_value − current\_debt
-
-**2.8. Quy tắc vay vốn — Phase 1**
-
-Để giảm độ phức tạp code trong MVP, **hạn mức vay được giữ cố định theo role trong từng phase**, không tự động thay đổi theo equity.
-
-Điều kiện:
-current\_debt + borrow\_amount ≤ max\_borrow\_amount
-
-Cuối mỗi round:
-cash = cash − round\_interest
-
-Người chơi có thể:
-
-- vay thêm giữa các round;
-- trả bớt nợ;
-- tất toán toàn bộ nợ.
-
-Nếu cuối phase vẫn còn nợ, hệ thống tự động yêu cầu tất toán.
-
-**3. PHASE 2 — THAI BAHT CRISIS 1997**
-
-Phase 2 chuyển từ chênh lệch giá giữa các trader sang chênh lệch giá giữa các **thị trường FX**.
-
-Hai loại cơ hội chính:
-
-**Cross-market arbitrage**
-So sánh cùng một cặp tiền giữa:
-
-- Bangkok/onshore;
-- Singapore/offshore;
-- USD/offshore.
-
-**Triangular arbitrage**
-
-Ví dụ:
-
-**USD → THB → SGD → USD**
-
-Raw design xác định Phase 2 sử dụng cả cross-market và triangular arbitrage, đồng thời đưa bid–ask, liquidity và execution vào gameplay.
-
-Người chơi **không giữ vị thế FX sang round sau mà phải đóng vị thế trước khi round sau bắt đầu (hệ thống tự động đóng khi ấn kết thúc)**.
-
-Mỗi round là một tập hợp báo giá và cơ hội mới.
-
-
-**4.1. Dữ liệu cốt lõi — Phase 2**
-
-| **Tên dữ liệu**               | **Ý nghĩa**                  | **Kiểu**     | **Ví dụ**  | **Kiểm tra**                | **Kết quả bị ảnh hưởng**  |
-| ----------------------------- | ---------------------------- | ------------ | ---------- | --------------------------- | ------------------------- |
-| currency\_pair                | Cặp tiền                     | string       | USD/THB    | Pair tồn tại                | Route giao dịch           |
-| market\_id                    | Thị trường báo giá           | string       | BANGKOK    | Market tồn tại              | Giá thực hiện             |
-| bid\_rate                     | Giá market mua               | number       | 25,40      | > 0                         | Tiền nhận khi bán         |
-| ask\_rate                     | Giá market bán               | number       | 25,35      | Ask ≥ Bid trong cùng market | Tiền trả khi mua          |
-| trade\_amount                 | Quy mô giao dịch             | number       | USD 10.000 | > 0                         | P&L                       |
-| base\_transaction\_fee        | Phí giao dịch cơ sở          | number       | 0,05%      | ≥ 0                         | P&L                       |
-| transaction\_cost\_multiplier | Hệ số phí theo role          | number       | 0,6        | > 0                         | Phí thực tế               |
-| borrow\_amount                | Khoản vay phục vụ giao dịch  | number       | 50         | Trong hạn mức               | Funding                   |
-| borrowing\_rate               | Lãi vay theo round           | number       | %          | ≥ 0                         | Chi phí vốn               |
-| market\_liquidity             | Khả năng thực hiện giao dịch | number/state | HIGH       | Hợp lệ                      | Quy mô khớp               |
-| execution\_slippage           | Sai lệch giá khi thực hiện   | number       | 0,01%      | ≥ 0                         | Net P&L                   |
-| crisis\_state                 | Trạng thái khủng hoảng       | enum         | PRESSURE   | Hợp lệ                      | Quotes, spread, liquidity |
-
-Các thông tin về chính sách và bảo vệ tỷ giá chỉ đóng vai trò **bối cảnh lịch sử/problem evidence**, không phải một mechanic player trực tiếp điều khiển.
-
-**4.2. Chi phí Phase 2**
-
-Phase 2 có ba nhóm chi phí trực tiếp:
-
-**1. Chênh lệch bid–ask**
-Không được tính bằng mid-rate.
-Player phải mua tại **ask** và bán tại **bid**.
-
-**2. Phí giao dịch**
-**transaction\_fee = trade\_value × base\_transaction\_fee × role\_multiplier**
-Investor có lợi thế ở phần này.
-
-**3. Chi phí vay vốn**
-Nếu sử dụng tiền vay:
-**funding\_cost = current\_debt × borrowing\_rate**
-Lãi được tính theo round.
-
-Ngoài ra, **slippage** và thanh khoản có thể khiến lợi nhuận thực tế thấp hơn lợi nhuận nhìn thấy ban đầu.
-
-FX thực tế chủ yếu là thị trường OTC, phân tán và dealer đóng vai trò trung gian, vì vậy việc Phase 2 đưa nhiều nguồn quote và execution friction vào game có cơ sở thực tế.
-
-**4.3. Dữ liệu do người chơi nhập — Phase 2**
-
-| **Tên dữ liệu**           | **Ý nghĩa**                 |
-| ------------------------- | --------------------------- |
-| arbitrage\_type           | CROSS\_MARKET / TRIANGULAR  |
-| borrow\_amount            | Số vốn muốn vay             |
-| trade\_amount             | Quy mô giao dịch            |
-| selected\_market\_buy     | Market mua                  |
-| selected\_market\_sell    | Market bán                  |
-| selected\_route           | Route triangular            |
-| buy\_information          | Có mua thêm thông tin không |
-| selected\_information\_id | Gói thông tin được chọn     |
-
-**4.4. Biến hệ thống tự tính — Phase 2**
-
-**Cross-market gross profit**
-gross\_profit = (sell\_bid − buy\_ask) × quantity
-
-**Phí thực hiện**
-total\_transaction\_fee = Σ fee của từng leg
-
-**Lợi nhuận ròng**
-net\_profit = gross\_profit − transaction\_fee − funding\_cost − slippage\_cost
-
-**Triangular arbitrage**
-Hệ thống lần lượt chuyển đổi:
-Currency 1 → Currency 2 → Currency 3 → Currency 1
-Sau khi dùng đúng bid/ask và trừ toàn bộ chi phí:
-
-- nếu final\_amount > initial\_amount → profitable;
-- nếu final\_amount ≤ initial\_amount → không profitable.
-
-**5. PHASE 3 — YEN CARRY TRADE / MODERN GLOBAL MARKET**
-
-Phase 3 không còn là arbitrage thông thường.
-Người chơi phải thực hiện các bước chơi như sau:
-**Vay JPY → đổi sang USD → phân bổ vào nhiều tài sản → nhận lợi suất → bán tài sản → đổi USD về JPY → trả nợ.**
-
-Carry Trade khai thác chênh lệch giữa chi phí funding thấp và lợi suất tài sản cao, nhưng player phải chịu rủi ro tỷ giá, tài sản và đòn bẩy. 
-BIS cũng mô tả carry trade là vị thế cross-currency thường sử dụng leverage, vay đồng tiền có lãi suất thấp để mua tài sản có lợi suất cao và nhạy cảm với tỷ giá, lãi suất và volatility.
-
-**5.1. Dữ liệu cốt lõi — Phase 3**
-
-| **Tên dữ liệu**               | **Ý nghĩa**                  | **Kiểu**    | **Ví dụ**        | **Kiểm tra**   | **Kết quả bị ảnh hưởng** |
-| ----------------------------- | ---------------------------- | ----------- | ---------------- | -------------- | ------------------------ |
-| jpy\_funding\_rate            | Lãi suất vay JPY             | number      | 0,5%             | ≥ 0            | Funding cost             |
-| funding\_amount\_jpy          | Số JPY vay                   | number      | ¥15.000.000      | ≥ 0            | Exposure                 |
-| max\_leverage                 | Đòn bẩy tối đa theo role     | number      | 3x               | ≥ 1            | Risk capacity            |
-| usd\_jpy\_bid                 | Giá bán USD lấy JPY          | number      | 149,90           | > 0            | FX conversion            |
-| usd\_jpy\_ask                 | Giá mua USD bằng JPY         | number      | 150,10           | Ask ≥ Bid      | FX conversion            |
-| asset\_id                     | Tài sản Mỹ                   | string      | US500            | Phải tồn tại   | Portfolio                |
-| asset\_price                  | Giá tài sản                  | number      | 100              | > 0            | Portfolio value          |
-| asset\_return                 | Lợi suất tài sản trong round | number      | +5%              | Scenario range | P&L                      |
-| allocation                    | Tỷ trọng danh mục            | number      | 40%              | 0–100%         | Portfolio return         |
-| base\_asset\_transaction\_fee | Phí mua/bán tài sản          | number      | 0,1%             | ≥ 0            | P&L                      |
-| transaction\_cost\_multiplier | Hệ số phí theo role          | number      | 0,6              | > 0            | P&L                      |
-| market\_liquidity             | Thanh khoản                  | state       | LOW              | Hợp lệ         | Execution                |
-| market\_regime                | Trạng thái thị trường        | enum        | RISK\_OFF        | Hợp lệ         | Asset/FX behavior        |
-| risk\_event                   | Sự kiện rủi ro               | enum/object | BOJ\_RATE\_SHOCK | Hợp lệ         | Market state             |
-
-Danh sách tài sản cụ thể có thể thay đổi theo scenario. Dataset mẫu có thể sử dụng các nhóm như:
-
-- SP 500;
-- US Technology;
-- US Treasury;
-- Gold;
-
-sau đó mở rộng nếu cần.
-Raw design cũng định hướng Phase 3 sử dụng global rates, FX, funding và nhiều loại asset thay vì một tài sản duy nhất.
-
-**5.2. Bốn loại chi phí trực tiếp — Phase 3**
-
-**1. Chi phí vay JPY**
-funding\_cost = JPY debt × funding rate
-Lãi được tự động thanh toán cuối mỗi round.
-
-**2. Chi phí chuyển đổi ngoại tệ**
-Player chịu bid–ask spread khi:
-**JPY → USD**
-và khi:
-**USD → JPY**
-Không tạo thêm một loại phí FX giả nếu không cần thiết; spread đã phản ánh friction cơ bản.        
-
-**3. Chi phí mua/bán tài sản**
-asset\_transaction\_cost = trade\_value × base\_fee × role\_multiplier
-Đây là nơi lợi thế của Investor tiếp tục phát huy.
-
-**4. Chi phí mua thông tin**
-Thông tin bổ sung trong Phase 3 có thể liên quan đến:
-
-- Fed;
-- BOJ;
-- lạm phát;
-- thanh khoản;
-- risk sentiment;
-- định vị thị trường.
-
-Information Hunter tiếp tục có lợi thế về chi phí tiếp cận thông tin.
-
-**5.3. Những yếu tố không được gọi là “cost”**
-
-**FX Gain/Loss**
-JPY tăng giá hoặc giảm giá tạo lãi/lỗ tỷ giá.
-Đây là **market risk**, không phải transaction cost.
-
-**Asset Gain/Loss**
-Giá tài sản tăng/giảm tạo P&L danh mục.
-Đây là **investment return**, không phải cost.
-
-**Leverage**
-Đòn bẩy là hệ số khuếch đại exposure, không phải cost.
-
-**Margin**
-Margin là constraint về vốn, không phải cost.
-
-**Liquidity**
-Liquidity ảnh hưởng khả năng thoát vị thế và giá thực hiện, không phải một khoản phí cố định.
-
-**5.4. Dữ liệu do người chơi nhập — Phase 3**
-
-| **Tên dữ liệu**           | **Ý nghĩa**             |
-| ------------------------- | ----------------------- |
-| borrow\_amount\_jpy       | Số JPY muốn vay         |
-| selected\_assets          | Các tài sản muốn đầu tư |
-| portfolio\_allocation     | Tỷ trọng từng tài sản   |
-| leverage\_level           | Đòn bẩy lựa chọn        |
-| buy\_information          | Có mua thông tin không  |
-| selected\_information\_id | Gói tin lựa chọn        |
-| position\_action          | HOLD / REDUCE / CLOSE   |
-
-Điều kiện:
-Σ allocation = 100%
-
-**5.5. Biến hệ thống tự tính — Phase 3**
-
-**Lợi suất danh mục**
-portfolio\_return = Σ(asset\_weight × asset\_return)
-
-**Chi phí vốn JPY**
-funding\_cost\_jpy = JPY debt × funding\_rate
-
-**Chi phí giao dịch tài sản**
-asset\_transaction\_cost = Σ(trade\_value × fee × role\_multiplier)
-
-**Giá trị cuối cùng bằng JPY**
-ending\_JPY = ending\_USD × USDJPY\_bid
-
-**Nghĩa vụ nợ**
-debt\_due = JPY principal + funding\_cost
-
-**P&L Carry Trade**
-net\_carry\_P&L = ending\_JPY − debt\_due − transaction\_costs
-
-## 2. INPUT VALIDATION
+## PHASE 1 — INFORMATION ASYMMETRY / PRE-ARBITRAGE
+
+### 1.1 Core Game Inputs — Phase 1
+| Input name | Meaning | Type | Unit | Example/Source | Validation | Source Owner |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `player_role` | Vai trò của người chơi | enum | – | Speculator / Investor / Information Hunter — Team game design | Required; phải thuộc 1 trong 3 role | - |
+| `initial_cash` | Tiền mặt ban đầu | number | game currency | 100 — Team game design | > 0 | - |
+| `max_borrow_amount` | Hạn mức vay tối đa | number | game currency | 200 / 50 / 100 tùy role — Team game design | ≥ 0 | - |
+| `max_leverage` | Đòn bẩy tối đa | number | x | 3x / 1.5x / 2x — Team game design | ≥ 1 | - |
+| `borrowing_rate` | Lãi suất vay của từng role | number | % per period | 6% / 4% / 5% — Team game design | Theo role configuration | - |
+| `information_cost_multiplier` | Hệ số điều chỉnh chi phí mua thông tin | number | x | 1.5 / 1.0 / 0.5 — Team game design | > 0 | - |
+| `base_information_cost` | Chi phí cơ sở của một gói thông tin | number | game currency | Theo team game rule, tuỳ thuộc vào từng gói news. | ≥ 0 | - |
+| `total_rounds` | Tổng số vòng chơi Phase 1 | integer | round | 03 | > 0 | - |
+| `round_duration` | Khoảng thời gian mà một round đại diện | number | period | 5 minutes | > 0 | - |
+| `max_trade_value` | Giá trị giao dịch tối đa mà người chơi được phép thực hiện | number | asset unit / game currency | TBD — Team game rule | > 0 | - |
+
+### 1.2 User-entered Inputs — Phase 1
+| Input name | Meaning | Type | Unit | Example | Valid range |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `buy_information` | Người chơi quyết định có mua thông tin hay không | boolean / enum | – | YES / NO — User decision | Chỉ YES / NO |
+| `borrow_amount` | Số tiền người chơi muốn vay thêm để giao dịch | number | game currency | User-entered | 0 ≤ amount ≤ max_borrow_amount của role |
+| `trade_action` | Người chơi muốn mua hay bán | enum | – | BUY / SELL | Chỉ BUY / SELL |
+| `number_trade_action` | Số lần người chơi được giao dịch trong 1 round (01 phase có 3 round) | number | – | User-entered | 0 ≤ trade ≤ 3 |
+| `selected_trader_id` | Thương nhân mà người chơi quyết định mua/bán với ai | string | – | TRADER_01 | Trader phải tồn tại và đang khả dụng |
+
+### 1.3 Market / Information Inputs — Phase 1
+| Input name | Meaning | Type | Unit | Example/Source | Validation |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `bid_price` | Giá thương nhân sẵn sàng mua | number | game currency / unit | Calibrated scenario | > 0 |
+| `ask_price` | Giá thương nhân sẵn sàng bán | number | game currency / unit | Calibrated scenario | > 0 và bid ≤ ask |
+| `available_quantity` | Số lượng tài sản trader có thể giao dịch | number | asset unit | Scenario data | ≥ 0 |
+| `quote_round` | Round báo giá có hiệu lực | integer | round | Scenario data | Valid round |
+| `information_id` | ID của thông tin | string | – | INFO_01 | Unique |
+| `headline_content` | Nội dung thông tin mà user nhìn thấy | string | – | Scenario / simulated information | Required |
+| `base_information_cost` | Giá cơ sở để mua thông tin | number | game currency | Team-calibrated | ≥ 0 |
+| `information_delay` | Độ trễ trước khi user nhận được thông tin | integer | round | Scenario rule | ≥ 0 |
+| `truth_label` | Xác định tin hữu ích hay noise | enum | – | SIGNAL / NOISE — Scenario internal | Chỉ game engine nhìn thấy |
+| `reliability_level` | Độ đáng tin của nguồn thông tin | number | 0–1 hoặc score | Scenario calibrated | 0–1 nếu dùng probability |
+| `affected_asset` | Asset mà thông tin tác động | string | – | ASSET_01 | Phải tồn tại |
+| `price_impact_rule` | Rule thông tin tác động tới giá | rule | – | Rule-based scenario | Phải được định nghĩa trước |
+| `available_from_round` | Round bắt đầu xuất hiện tin | integer | round | Scenario | Valid round |
+| `expiry_round` | Round thông tin hết giá trị | integer | round | Scenario | ≥ available round |
+
+---
+
+## PHASE 2 — FX ARBITRAGE
+
+### 2.1 Core Game Inputs — Phase 2
+| Input name | Meaning | Type | Unit | Example/Source | Validation |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `initial_cash` | Vốn ban đầu của Phase 2 | number | reporting currency | Team game rule | > 0 |
+| `reporting_currency` | Đồng tiền chuẩn dùng tính NAV/P&L | string | – | USD / game-defined currency | Required |
+| `max_borrow_amount` | Hạn mức vay tối đa | number | currency | Team game rule | ≥ 0 |
+| `max_leverage` | Maximum leverage | number | x | Team game rule | ≥ 1 |
+| `borrowing_rate` | Lãi suất vay vốn | number | % per period | Team/calibrated | Theo scenario |
+| `transaction_fee_rate` | Phí giao dịch theo giá trị giao dịch | number | % | Team/calibrated | ≥ 0 |
+| `fixed_transaction_fee` | Phí cố định mỗi giao dịch nếu có | number | currency | Team game rule | ≥ 0 |
+| `base_information_cost` | Chi phí cơ sở để mua thông tin | number | currency | Team | ≥ 0 |
+| `information_cost_multiplier` | Hệ số chi phí thông tin theo role | number | x | Role configuration | > 0 |
+| `total_rounds` | Tổng số vòng Phase 2 | integer | round | Team | > 0 |
+| `round_duration` | Khoảng thời gian mỗi round | number | period | Team assumption | > 0 |
+| `max_trade_value` | Giá trị giao dịch tối đa mà người chơi được phép thực hiện | number | asset unit / game currency | TBD — Team game rule | > 0 |
+| `execution_rule` | Quy tắc khớp giao dịch | rule | – | Rule-based engine | Required |
+| `liquidity_rule` | Quy tắc liquidity ảnh hưởng execution/slippage | rule | – | Team scenario rule | Required nếu liquidity ảnh hưởng gameplay |
+
+### 2.2 User-entered Inputs — Phase 2
+| Input name | Meaning | Type | Unit | Example/Source | Validation |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `exchange_amount` | Giá trị tiền mà người chơi muốn đem đi đổi | number | currency | 1,000 USD — User-entered | > 0 và ≤ số vốn khả dụng |
+| `target_currency` | Đồng tiền mà người chơi muốn đổi sang | enum | – | THB / SGD | Chỉ được chọn currency có trong scenario |
+| `borrow_amount` | Số tiền người chơi muốn vay thêm để thực hiện giao dịch | number | reporting currency | User-entered | 0 ≤ amount ≤ max_borrow_amount |
+| `buy_market_type` | Thị trường mà người chơi chọn để mua đồng tiền | enum | – | ONSHORE / OFFSHORE | Chỉ ONSHORE hoặc OFFSHORE |
+| `sell_market_type` | Thị trường mà người chơi chọn để bán đồng tiền | enum | – | ONSHORE / OFFSHORE | Chỉ ONSHORE hoặc OFFSHORE |
+
+### 2.3 Market / Information / Macro Inputs — Phase 2
+| Input name | Meaning | Type | Unit | Example/Source | Validation |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `market_id` | ID thị trường FX | string | – | Scenario market | Unique |
+| `currency_pair` | Cặp tiền được niêm yết | string | – | USD/JPY | Pair phải tồn tại |
+| `bid` | Giá market mua base currency | number | quote/base currency | Calibrated FX scenario | > 0 |
+| `ask` | Giá market bán base currency | number | quote/base currency | Calibrated FX scenario | > 0 và bid ≤ ask |
+| `quote_round` | Round của quote | integer | round | Scenario | Valid round |
+| `quote_expiry` | Thời gian quote còn hiệu lực | integer | round | Scenario | ≥ 0 |
+| `transaction_fee_rate` | Phí giao dịch market-specific | number | % | Team/calibrated | ≥ 0 |
+| `fixed_fee` | Fixed transaction charge | number | currency | Team rule | ≥ 0 |
+| `market_liquidity` | Mức thanh khoản của market | number | currency / volume | Calibrated scenario | ≥ 0 |
+| `max_executable_amount` | Maximum amount có thể khớp tại quote hiện tại | number | currency | Scenario rule | > 0 |
+| `execution_delay` | Độ trễ từ lúc gửi lệnh tới lúc khớp | number | round/time unit | Scenario | ≥ 0 |
+| `slippage_rule` | Rule tính trượt giá | rule | – | Team-calibrated | Required nếu có slippage |
+| `available_volume` | Volume còn khả dụng | number | currency | Scenario | ≥ 0 |
+| `information_id` | ID thông tin FX | string | – | FX_INFO_01 | Unique |
+| `headline` | Nội dung user nhìn thấy | string | – | Real-reference / simulated | Required |
+| `market_target` | Pair/market mà tin ảnh hưởng | string | – | USD/JPY | Target phải tồn tại |
+| `truth_label` | Signal hay noise | enum | – | SIGNAL / NOISE | Internal only |
+| `information_delay` | Độ trễ của information | integer | round | Scenario | ≥ 0 |
+| `expected_direction` | Hướng tác động mà scenario thiết kế | enum | – | UP / DOWN / NEUTRAL | Internal only |
+| `expiry_round` | Round tin hết giá trị | integer | round | Scenario | Valid round |
+| `central_bank_event` | Sự kiện từ ngân hàng trung ương | enum/string | – | RATE_CHANGE / INTERVENTION / NONE | Scenario-defined |
+| `capital_flow_state` | Trạng thái dòng vốn | enum | – | NORMAL / INFLOW / OUTFLOW | Scenario-defined |
+| `market_stress_state` | Trạng thái stress thị trường | enum | – | NORMAL / STRESS | Valid category |
+| `fx_volatility` | Mức biến động tỷ giá | number | % hoặc index | Calibrated scenario | ≥ 0 |
+| `market_event_id` | Event làm FX/market condition thay đổi | string | – | EVENT_FX_02 | ID phải tồn tại |
+
+> *Lưu ý: `spread = ask - bid`, nên có thể tính tự động. Không cần lưu spread riêng nếu đã có bid và ask.*
+
+---
+
+## PHASE 3 — CARRY TRADE & MACRO RISK
+
+### 3.1 Core Game Inputs — Phase 3
+| Input name | Meaning | Type | Unit | Example/Source | Validation |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `buy_information` | Có mua thêm macro/news information không | boolean / enum | – | YES / NO — User decision | Chỉ YES / NO |
+| `borrow_jpy` | Khối lượng JPY người chơi muốn vay | number | JPY | User-entered | >0 và ≤ max_borrow_jpy |
+| `selected_leverage` | Mức đòn bẩy player lựa chọn | number / enum | x | 1x / 1.5x / 2x... — Team-defined options | 1 ≤ leverage ≤ max_leverage |
+| `allocation_equity_pct` | % vốn sau khi vay được đầu tư vào US Equities | number | % | User-entered | 0–100 |
+| `allocation_hy_bond_pct` | % vốn đầu tư vào High-yield Bonds | number | % | User-entered | 0–100 |
+| `position_action` | Quyết định xử lý vị thế sau khi market thay đổi | enum | – | HOLD / REDUCE / CLOSE | Chỉ các category được định nghĩa |
+| `reduce_percentage` | Tỷ lệ position muốn đóng bớt nếu chọn REDUCE | number | % | User-entered | 0–100; chỉ active khi REDUCE |
+
+> *Lưu ý: Nếu chỉ có Equities và HY Bonds và không cho giữ cash:*
+> `allocation_equity_pct + allocation_hy_pct = 100%`
+
+### 3.3 Market / Information / Macro Inputs — Phase 3
+| Input name | Meaning | Type | Unit | Example/Source | Validation |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `round_id` | Round hiện tại | integer | round | Scenario | 1 → total rounds |
+| `boj_policy_rate` | BOJ policy rate | number | % p.a. | BOJ official reference / calibrated scenario | Numeric; scenario-defined range |
+| `fed_policy_rate_lower` | Lower bound Fed target range | number | % p.a. | Federal Reserve official reference | Numeric |
+| `fed_policy_rate_upper` | Upper bound Fed target range | number | % p.a. | Federal Reserve official reference | ≥ lower bound |
+| `boj_policy_signal` | Hướng policy của BOJ | enum | – | TIGHTEN / HOLD / EASE | Valid category |
+| `fed_policy_signal` | Hướng policy của Fed | enum | – | TIGHTEN / HOLD / EASE | Valid category |
+| `jpy_funding_rate` | Lãi suất thực tế game dùng để tính khoản vay | number | % p.a. | Calibrated simulated data | Theo scenario-defined range |
+| `usd_jpy_bid` | Bid của USD/JPY | number | JPY/USD | FX historical reference / calibrated | > 0 |
+| `usd_jpy_ask` | Ask của USD/JPY | number | JPY/USD | FX historical reference / calibrated | ≥ bid |
+| `fx_volatility` | Mức volatility của USD/JPY | number | % / index | Calibrated scenario | ≥ 0 |
+| `fx_regime` | Trạng thái FX | enum | – | NORMAL / JPY_STRENGTHENING / STRESS | Valid category |
+| `us_equity_return` | Return US Equities trong round | number | % | Calibrated using US equity reference | > -100% |
+| `hy_bond_return` | Return High-yield Bonds trong round | number | % | Calibrated using HY bond reference | > -100% |
+| `macro_event_id` | ID macro event | string | – | EVENT_03 | ID phải tồn tại |
+| `macro_event_type` | Loại macro event | enum | – | POLICY / INFLATION / LABOR / RISK_OFF | Scenario-defined |
+| `headline` | Nội dung macro/news mà user đọc | string | – | Real-reference / simulated | Required |
+| `truth_label` | Signal hữu ích hay noise | enum | – | SIGNAL / NOISE | Internal only |
+| `impact_target` | Biến/tài sản bị ảnh hưởng | enum | – | FX / EQUITY / BOND / FUNDING | Valid category |
+| `market_stress_state` | Mức stress thị trường | enum | – | NORMAL / STRESS / UNWIND | Valid category |
+| `capital_flow_state` | Trạng thái dòng vốn nếu mechanic sử dụng | enum | – | NORMAL / OUTFLOW / FLIGHT_TO_SAFETY | Scenario-defined |
+| `volatility_regime` | Trạng thái volatility tổng thể | enum | – | LOW / NORMAL / HIGH / CRISIS | Valid category |
+| `information_id` | ID của news/signal | string | – | MACRO_INFO_01 | Unique |
+| `base_information_cost` | Giá cơ sở để truy cập information | number | reporting currency | Team game rule | ≥ 0 |
+| `information_delay` | Độ trễ của information | integer | round | Scenario | ≥ 0 |
+| `expiry_round` | Round tin hết giá trị | integer | round | Scenario | ≥ display round |
+
+
+# INPUT VALIDATION
 
 ### 2.1. Kiểm tra chung
 | Quy tắc | Áp dụng | Xử lý khi vi phạm |
