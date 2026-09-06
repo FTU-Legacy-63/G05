@@ -27,6 +27,7 @@ Tài sản và vốn được **reset về vốn ban đầu khi chuyển phase**
 
 
 **2. INPUT DICTIONARY**
+
 **2.1. Cấu hình vai người chơi**
 Lợi thế của ba vai được thiết kế theo ba nguồn lợi thế khác nhau:
 
