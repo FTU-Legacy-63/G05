@@ -45,8 +45,6 @@
 | Phase 2 có cả cross-market và triangular arbitrage | Thể hiện market integration | Có thể tăng độ khó | UI hướng dẫn route |
 | Giao dịch bị giới hạn bởi available volume và max executable amount | Phản ánh liquidity constraints | Không mô phỏng full market depth | Sử dụng predefined liquidity limits |
 | Mỗi lệnh chịu fixed fee và transaction fee rate | Đưa market friction vào arbitrage calculation | Fee structure được đơn giản hóa | Dùng predefined parameters |
-| Execution delay hoặc market stress có thể gây slippage | Phản ánh execution risk | Slippage không hoàn toàn giống thực tế | Calibration |
-| Central bank events có thể làm arbitrage opportunity biến mất trong cùng round | Thể hiện arbitrage opportunity có tính thời điểm | Event timing được simulated | Sử dụng predefined event scenarios |
 | Phase 2 đóng FX position trong cùng round | Tập trung vào arbitrage | Không dạy holding FX risk | Phase 3 tập trung vào holding risk |
 | Investor có chi phí lãi vay thấp nhất | Tạo lợi thế riêng cho role | Có thể khiến Investor quá mạnh | Chốt parameter sau playtest |
 
