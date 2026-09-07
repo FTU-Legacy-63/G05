@@ -28,7 +28,7 @@
 | Phase 1 không có transaction fee | Tập trung vào information asymmetry | Thị trường thực vẫn có friction | Phase 2 bắt đầu đưa transaction cost vào |
 | Mỗi round tối đa 1 paid information | Tránh mua toàn bộ thông tin | Có thể quá hạn chế | Playtest |
 | Paid information vẫn có thể là noise | Không biến tiền thành “mua đáp án” | Player cảm thấy mất tiền vô ích | Debrief giải thích value of information |
-| Information có information delay, reliability level và expiry round | Mô phỏng thông tin không hoàn hảo và có tính thời điểm | Tăng complexity | Hiển thị rõ các thuộc tính của information |
+| Information có thể sai hoặc đúng, có mức độ % đáng tin cậy của information | Mô phỏng thông tin không hoàn hảo và có tính thời điểm | Tăng complexity | Hiển thị rõ các thuộc tính của information |
 | Information Hunter có lợi thế giá tin và độ tin cậy của news cao hơn | Giữ role đơn giản và tạo information advantage | Có thể chưa đủ mạnh hoặc quá mạnh | Điều chỉnh nếu playtest cho thấy yếu/mạnh |
 | Speculator có khả năng vay và leverage cao hơn | Tạo lợi thế vốn và risk-taking trade-off | Có thể khuyến khích đánh cược | Final Score có Risk Discipline |
 | Lãi vay tính mỗi round | Cơ chế rõ ràng | Không phản ánh chính xác mọi convention thật | Ghi là game rule |
