@@ -143,7 +143,7 @@ Lợi thế của ba vai được thiết kế theo ba nguồn lợi thế khác
 
 ---
 
-## PHASE 3 — CARRY TRADE & MACRO RISK
+## PHASE 3 — CARRY TRADE 
 
 ### 3.1 Core Game Inputs — Phase 3
 | Input name | Meaning | Type | Unit | Example/Source | Validation |
