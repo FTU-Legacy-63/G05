@@ -56,8 +56,8 @@
 |---|---|---|---|
 | Yen Carry Trade không phải risk-free arbitrage | Đúng logic tài chính | Phức tạp hơn arbitrage | Tách riêng funding risk, FX risk và asset risk |
 | Player vay JPY và chuyển đổi sang USD để đầu tư | Tạo cơ chế carry trade rõ ràng | Không cho phép alternative funding strategy | Ghi rõ là game rule |
-| 100% số vốn sau vay phải được phân bổ vào US Equity và High-Yield Bonds | Tạo portfolio decision | Không phản ánh đầy đủ investment universe | Giới hạn asset classes trong prototype |
-| Không được giữ tiền mặt USD nhàn rỗi | Buộc player chịu investment risk | Giảm strategic flexibility | Có thể mở rộng sau |
+| Không bắt buộc phải phân bổ 100% số vốn sau vay phải được phân bổ vào US Equity và High-Yield Bonds | Tạo portfolio decision | Không phản ánh đầy đủ investment universe | Giới hạn asset classes trong prototype |
+| Được giữ tiền mặt USD nhàn rỗi | Giảm thiểu investment risk cho player | Tăng strategic flexibility | Có thể mở rộng sau |
 | Chi phí vốn chịu ảnh hưởng bởi lãi suất chính sách của BOJ | Liên kết funding cost với monetary policy | Không phản ánh toàn bộ funding market | Dùng policy rate làm proxy |
 | Lợi suất tài sản USD gắn liền với khung lãi suất điều hành của Fed | Liên kết asset return với macro conditions | Không phản ánh toàn bộ yếu tố quyết định asset price | Tập trung vào key macro drivers |
 | Player đồng thời chịu asset risk và FX risk | Phản ánh double exposure của carry trade | Có thể tạo large losses | Tách riêng asset P&L và FX impact |
