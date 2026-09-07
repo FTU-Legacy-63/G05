@@ -21,8 +21,7 @@
 | Giả định | Lý do đơn giản hóa | Rủi ro nếu không công khai | Cách xử lý |
 |---|---|---|---|
 | Phase 1 chỉ có một loại tulip | Giảm số lượng biến | Đơn giản hóa lịch sử | Ghi rõ là prototype |
-| Phase 1 kéo dài 3 round, mỗi round 5 phút | Tạo cấu trúc gameplay rõ ràng | Không phản ánh timing lịch sử | Ghi rõ là game rule |
-| Mỗi round player chỉ được thực hiện tối đa 3 lần giao dịch với một trader cụ thể | Hạn chế excessive trading và tạo trade-off trong quyết định | Có thể hạn chế strategy của player | Playtest |
+| Phase 1 kéo dài 3 round, mỗi round 2 phút | Tạo cấu trúc gameplay rõ ràng | Không phản ánh timing lịch sử | Ghi rõ là game rule |
 | Trader quotes là simulated | Không tái tạo được từng quote lịch sử | Player có thể tưởng là số liệu lịch sử | Ghi rõ nguồn là team-created |
 | Báo giá thay đổi mỗi round | Tạo market dynamics | Có thể bị random vô nghĩa | Thay đổi dựa trên market state |
 | Phase 1 không có transaction fee | Tập trung vào information asymmetry | Thị trường thực vẫn có friction | Phase 2 bắt đầu đưa transaction cost vào |
