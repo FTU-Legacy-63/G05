@@ -73,7 +73,6 @@ Lợi thế của ba vai được thiết kế theo ba nguồn lợi thế khác
 | `information_id` | ID của thông tin | string | – | INFO_01 | Unique |
 | `headline_content` | Nội dung thông tin mà user nhìn thấy | string | – | Scenario / simulated information | Required |
 | `base_information_cost` | Giá cơ sở để mua thông tin | number | game currency | Team-calibrated | ≥ 0 |
-| `information_delay` | Độ trễ trước khi user nhận được thông tin | integer | round | Scenario rule | ≥ 0 |
 | `truth_label` | Xác định tin hữu ích hay noise | enum | – | SIGNAL / NOISE — Scenario internal | Chỉ game engine nhìn thấy |
 | `reliability_level` | Độ đáng tin của nguồn thông tin | number | 0–1 hoặc score | Scenario calibrated | 0–1 nếu dùng probability |
 | `affected_asset` | Asset mà thông tin tác động | string | – | ASSET_01 | Phải tồn tại |
@@ -125,8 +124,6 @@ Lợi thế của ba vai được thiết kế theo ba nguồn lợi thế khác
 | `fixed_fee` | Fixed transaction charge | number | currency | Team rule | ≥ 0 |
 | `market_liquidity` | Mức thanh khoản của market | number | currency / volume | Calibrated scenario | ≥ 0 |
 | `max_executable_amount` | Maximum amount có thể khớp tại quote hiện tại | number | currency | Scenario rule | > 0 |
-| `execution_delay` | Độ trễ từ lúc gửi lệnh tới lúc khớp | number | round/time unit | Scenario | ≥ 0 |
-| `slippage_rule` | Rule tính trượt giá | rule | – | Team-calibrated | Required nếu có slippage |
 | `available_volume` | Volume còn khả dụng | number | currency | Scenario | ≥ 0 |
 | `information_id` | ID thông tin FX | string | – | FX_INFO_01 | Unique |
 | `headline` | Nội dung user nhìn thấy | string | – | Real-reference / simulated | Required |
@@ -187,7 +184,6 @@ Lợi thế của ba vai được thiết kế theo ba nguồn lợi thế khác
 | `volatility_regime` | Trạng thái volatility tổng thể | enum | – | LOW / NORMAL / HIGH / CRISIS | Valid category |
 | `information_id` | ID của news/signal | string | – | MACRO_INFO_01 | Unique |
 | `base_information_cost` | Giá cơ sở để truy cập information | number | reporting currency | Team game rule | ≥ 0 |
-| `information_delay` | Độ trễ của information | integer | round | Scenario | ≥ 0 |
 | `expiry_round` | Round tin hết giá trị | integer | round | Scenario | ≥ display round |
 
 
