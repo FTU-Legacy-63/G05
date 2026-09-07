@@ -41,20 +41,21 @@ Lợi thế của ba vai được thiết kế theo ba nguồn lợi thế khác
 ## PHASE 1 — INFORMATION ASYMMETRY / PRE-ARBITRAGE
 
 ### 1.1 Core Game Inputs — Phase 1
-| Input name | Meaning | Type | Unit | Example/Source | Validation | Source Owner |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `player_role` | Vai trò của người chơi | enum | – | Speculator / Investor / Information Hunter — Team game design | Required; phải thuộc 1 trong 3 role | - |
-| `initial_cash` | Tiền mặt ban đầu | number | game currency | 100 — Team game design | > 0 | - |
-| `max_borrow_amount` | Hạn mức vay tối đa | number | game currency | 200 / 50 / 100 tùy role — Team game design | ≥ 0 | - |
-| `max_leverage` | Đòn bẩy tối đa | number | x | 3x / 1.5x / 2x — Team game design | ≥ 1 | - |
-| `borrowing_rate` | Lãi suất vay của từng role | number | % per period | 6% / 4% / 5% — Team game design | Theo role configuration | - |
-| `information_cost_multiplier` | Hệ số điều chỉnh chi phí mua thông tin | number | x | 1.5 / 1.0 / 0.5 — Team game design | > 0 | - |
-| `base_information_cost` | Chi phí cơ sở của một gói thông tin | number | game currency | Theo team game rule, tuỳ thuộc vào từng gói news. | ≥ 0 | - |
-| `total_rounds` | Tổng số vòng chơi Phase 1 | integer | round | 03 | > 0 | - |
-| `round_duration` | Khoảng thời gian mà một round đại diện | number | period | 5 minutes | > 0 | - |
-| `max_trade_value` | Giá trị giao dịch tối đa mà người chơi được phép thực hiện | number | asset unit / game currency | TBD — Team game rule | > 0 | - |
+| Input name | Meaning | Type | Unit | Example/Source | Validation | 
+| :--- | :--- | :--- | :--- | :--- | :--- | 
+| `player_role` | Vai trò của người chơi | enum | – | Speculator / Investor / Information Hunter — Team game design | Required; phải thuộc 1 trong 3 role | 
+| `initial_cash` | Tiền mặt ban đầu | number | game currency | 100 — Team game design | > 0 | 
+| `max_borrow_amount` | Hạn mức vay tối đa | number | game currency | 200 / 50 / 100 tùy role — Team game design | ≥ 0 | 
+| `max_leverage` | Đòn bẩy tối đa | number | x | 3x / 1.5x / 2x — Team game design | ≥ 1 | 
+| `borrowing_rate` | Lãi suất vay của từng role | number | % per period | 6% / 4% / 5% — Team game design | Theo role configuration | 
+| `information_cost_multiplier` | Hệ số điều chỉnh chi phí mua thông tin | number | x | 1.5 / 1.0 / 0.5 — Team game design | > 0 | 
+| `base_information_cost` | Chi phí cơ sở của một gói thông tin | number | game currency | Theo team game rule, tuỳ thuộc vào từng gói news. | ≥ 0 | 
+| `total_rounds` | Tổng số vòng chơi Phase 1 | integer | round | 03 | > 0 | 
+| `round_duration` | Khoảng thời gian mà một round đại diện | number | period | 5 minutes | > 0 | 
+| `max_trade_value` | Giá trị giao dịch tối đa mà người chơi được phép thực hiện | number | asset unit / game currency | TBD — Team game rule | > 0 | 
 
 ### 1.2 User-entered Inputs — Phase 1
+
 | Input name | Meaning | Type | Unit | Example | Valid range |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | `buy_information` | Người chơi quyết định có mua thông tin hay không | boolean / enum | – | YES / NO — User decision | Chỉ YES / NO |
