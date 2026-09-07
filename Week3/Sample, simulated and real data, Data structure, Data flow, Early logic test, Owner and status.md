@@ -59,10 +59,14 @@ Dữ liệu mô phỏng các giai đoạn khủng hoảng tài chính và cơ ch
 
 Dự án ưu tiên sử dụng cấu trúc dữ liệu đơn giản, dễ kiểm tra và phù hợp với tính chất của một game mô phỏng kịch bản (Scenario-based simulation). Cụ thể, nhóm kết hợp sử dụng 2 định dạng:
 
-* **Spreadsheet (Excel/CSV) - Dành cho khâu Thiết kế & Logic Test:** Sử dụng để team Content & Data thiết lập tỷ giá, tính toán chênh lệch (P&L), biên độ đòn bẩy và kiểm thử các kịch bản tĩnh (Scenarios) một cách trực quan.
-* **JSON trong code - Dành cho khâu Lập trình (Frontend/Backend):** Dữ liệu chuẩn từ Spreadsheet sẽ được chuyển sang định dạng JSON. Định dạng này siêu nhẹ, thân thiện với web, giúp hệ thống truy xuất kịch bản nhanh chóng mà không làm nặng máy người chơi.
+* **Spreadsheet (Excel/CSV)**
+
+- **Dành cho khâu Thiết kế & Logic Test:** Sử dụng để team Content & Data thiết lập tỷ giá, tính toán chênh lệch (P&L), biên độ đòn bẩy và kiểm thử các kịch bản tĩnh (Scenarios) một cách trực quan.
+  
+- **JSON trong code - Dành cho khâu Lập trình (Frontend/Backend):** Dữ liệu chuẩn từ Spreadsheet sẽ được chuyển sang định dạng JSON. Định dạng này siêu nhẹ, thân thiện với web, giúp hệ thống truy xuất kịch bản nhanh chóng mà không làm nặng máy người chơi.
 
 **💡 Lý do không sử dụng Database phức tạp:** 
+
 Do ARBIVERSE vận hành hoàn toàn dựa trên dữ liệu mô phỏng (Simulated Data) tĩnh theo từng Phase, không yêu cầu cập nhật Real-time API hay xử lý truy vấn phức tạp. Việc sử dụng JSON giúp tránh phụ thuộc vào hạ tầng server cồng kềnh, đảm bảo game chạy mượt mà ngay trên lớp học.
 
 
