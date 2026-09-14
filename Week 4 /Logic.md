@@ -566,28 +566,3 @@ Python Expected Output
 trước khi logic được đưa vào product.
 
 ---
-
-## 8. Deployment Route and Fallback
-
-Primary deployment:
-
-```text
-GitHub → Streamlit Community Cloud
-```
-
-Fallback:
-
-```text
-Excel Simulation Model
-```
-
-Nếu web application chưa ổn định tại thời điểm assessment, Excel vẫn có thể chứng minh:
-
-- input;
-- financial logic;
-- calculation;
-- P&L;
-- player status;
-- scenario testing.
-
----
