@@ -11,11 +11,17 @@ After completing End Phase Settlement, the system should not only display Final 
 ### Debrief Flow
 
 Final Result
+     
       ↓
+
 P&L Breakdown
+  
       ↓
+
 Performance Feedback
+   
       ↓
+
 Score
 
 > **Important:** Evaluation must be based on the information available at the time the player made the decision, and must not use outcomes from later rounds to retrospectively judge an earlier decision.
