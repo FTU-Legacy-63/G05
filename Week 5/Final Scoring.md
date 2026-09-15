@@ -12,7 +12,6 @@ After completing End Phase Settlement, the system should not only display Final 
 
 ### Debrief Flow
 
-```text
 Final Result
       ↓
 P&L Breakdown
