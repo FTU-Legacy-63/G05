@@ -38,24 +38,14 @@ Dữ liệu mô phỏng các giai đoạn khủng hoảng tài chính và cơ ch
 
 ## Phase 3 — Yen Carry Trade / Modern Global Market
 
-| Round | Đối tượng / Mã tài sản | Loại lệnh / Giao dịch | Hạn mức / Khối lượng | Báo giá / Mức sinh lời | Ghi chú vận hành & Ý nghĩa kinh tế |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 (Tích lũy & Vay rẻ) | FX_USDJPY | Vay JPY & Đổi sang USD | Hạn mức theo vai chơi | 155.0 JPY/USD | Lãi vay 0.25%/round. Đổi Yên sang USD giá nền. (JPY_borrow_cost: 0.25% / 0.50% / 3.50%) |
-| | US_TECH | BUY (Cổ phiếu M7) | Tối đa 100% danh mục | +10.0% / round | Cổ phiếu Big Tech tăng mạnh nhờ đòn bẩy và sóng AI. |
-| | US_SP500 | BUY (S&P 500 Index) | Tối đa 100% danh mục | +6.0% / round | Thị trường chung tăng trưởng ổn định. |
-| | US_BOND | BUY (US Treasury 10Y) | Tối đa 100% danh mục | +1.5% / round | Lợi suất trái phiếu ổn định quanh 4.3%/năm quy đổi theo quý. |
-| | USD_CASH | DEPOSIT (Gửi USD) | Không giới hạn | +1.2% / round | Lợi suất tiền mặt phi rủi ro từ Fed Funds Rate (5.25%/năm). |
-| 2 (Đỉnh sốt giá & Can thiệp) | FX_USDJPY | Duy trì nợ / Đổi thêm | Hạn mức theo vai chơi | 160.0 JPY/USD | Lãi vay tăng lên 1.0%/round. Nợ JPY quy ra USD giảm (lãi ảo). |
-| | US_TECH | HOLD / Mua thêm | Tối đa 100% danh mục | +2.0% / round | Big Tech khựng lại do định giá căng; thị trường đi ngang. |
-| | US_SP500 | HOLD / Mua thêm | Tối đa 100% danh mục | +1.0% / round | Thị trường chung chững lại, biến động nhạy cảm. |
-| | US_BOND | HOLD / Mua thêm | Tối đa 100% danh mục | +1.0% / round | Lợi suất ổn định, phòng thủ danh mục. |
-| | USD_CASH | DEPOSIT (Gửi USD) | Không giới hạn | +1.2% / round | Lãi suất tiền mặt giữ nguyên. |
-| 3 (Sập - Unwind) | FX_USDJPY | Mua lại JPY trả nợ | Toàn bộ nợ gốc + lãi | 142.0 JPY/USD | BOJ nâng lãi, phí vay vọt lên 3.5%/round. Tỷ giá rơi về 142 ép tăng nợ. |
-| | US_TECH | SELL (Bán tài sản) | Bán toàn bộ danh mục | -25.0% / round | M7 sụt giảm sâu do quỹ đầu cơ bán tháo gom USD đổi JPY. |
-| | US_SP500 | SELL (Bán tài sản) | Bán toàn bộ danh mục | -12.0% / round | S&P 500 giảm theo đà rút vốn của thị trường. |
-| | US_BOND | SELL (Bán tài sản) | Bán toàn bộ danh mục | +4.0% / round | Dòng tiền đổ vào tài sản trú ẩn đẩy giá trái phiếu tăng. |
-| | USD_CASH | WITHDRAW (Rút tiền trả nợ) | Toàn bộ số dư tiền mặt | +1.2% / round | Lãi suất tiền mặt nhận đủ kỳ để cấn trừ nợ. |
-
+| Market | R1 | R2 | R3 | R4 | End | Role |
+| :--- | :---: | :---: | :---: | :---: | :---: | :--- |
+| USD/JPY | 150.00 | 160.00 | 142.00 | 152.00 | 147.00 | |
+| BOJ rate | 0.10% | 0.10% | 0.25% | 0.25% | 0 | |
+| Tech Index | 450.00 | 515.00 | 345.00 | 410.00 | 400.00 | |
+| S&P Index | 520.00 | 570.00 | 490.00 | 510.00 | 525.00 | |
+| US Cash Return | 0.20% | 1.50% | 0.30% | 0.75% | 0 | |
+| Quarter months | 3 | 3 | 3 | 3 | 0 | |
 ___
 
 ## 2. DATA STRUCTURE
@@ -282,7 +272,6 @@ Phân bổ Portfolio
 
 US_TECH  
 US_SP500  
-US_BOND  
 USD_CASH  
 
 ↓  
@@ -358,7 +347,6 @@ Calculate Final P&L
 |---|---|---|
 | `US_TECH` | US Big Tech / Magnificent 7 | High Return / High Risk |
 | `US_SP500` | S&P 500 | Medium Return / Medium Risk |
-| `US_BOND` | US Treasury 10Y | Defensive / Safe Haven |
 | `USD_CASH` | USD Cash | Low Risk / Stable Return |
 
 ### Chi phí Phase 3
