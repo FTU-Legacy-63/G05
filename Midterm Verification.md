@@ -11,37 +11,74 @@
 
 ### A. GROUP VERIFICATION
 
-#### 1. What is the biggest issue your team still needs to solve before Week 6?
-The biggest issue our team still needs to solve is to ensure consistency between the financial rules designed in our model and the logic implemented in the game engine.
+## 1. What is the biggest issue your team still needs to solve before Week 6?
 
-The most critical case is the timing between floating-interest accrual and debt repayment. According to our intended financial logic, if a JPY loan remains outstanding during a round and is repaid at the end of that round, it must still incur that round’s interest. For example, a loan opened in Round 1 and repaid at the end of Round 2 should include both Round 1 and Round 2 interest, but no Round 3 interest.
+> **Answer:**
+> Our biggest issue is **validating and calibrating the existing scoring system so that each score difference is financially meaningful and can clearly distinguish between players with similar returns but different levels of risk-taking and decision quality**.
+>
+> Our current scoring framework already evaluates three dimensions: **Financial Performance (50 points), Risk Management (30 points), and Decision Quality (20 points)**. However, the remaining challenge is to determine whether the current weights, thresholds, and score ranges are calibrated appropriately.
+>
+> For example, two players may achieve a similar final profit, but one may use a highly aggressive strategy with high JPY debt, weak liquidity, and concentrated asset exposure, while another may achieve a similar result with better liquidity and more controlled risk. The scoring system should be able to distinguish these two strategies in a clear and explainable way.
+>
+> Therefore, the issue before Week 6 is not to redesign the scoring system from the beginning, but to **validate whether the current system correctly translates differences in return, risk, and decision quality into meaningful score differences**.
 
-However, the current prototype does not yet fully process repayment and interest accrual in this exact order. Therefore, the main issue before Week 6 is to make sure that the implemented game engine follows the financial rules consistently.
+---
 
-#### 2. Why is this issue important?
-This issue is important because the financial engine is the core of our product. Almost every final output depends on whether borrowing, interest accrual, repayment, and valuation are processed correctly.
+## 2. Why is this issue important?
 
-If the timing is inconsistent, the system may calculate the wrong interest expense and repayment amount. This would then affect Funding P&L, Net P&L, Final Wealth, risk indicators, player feedback, and the final score.
+> **Answer:**
+> This issue is important because the final score is the main evaluation output of the game. If the scoring system is not properly calibrated, it may not accurately represent the quality of the player's financial decisions.
+>
+> In the JPY carry-trade simulation, final performance depends on several interconnected factors. Players borrow in JPY, invest in USD-denominated assets, and are exposed to changes in funding cost, asset prices, and the USD/JPY exchange rate. A movement in USD/JPY changes the USD value of the player's JPY repayment obligation, while asset-price movements affect Investment P&L and floating interest affects Funding P&L.
+>
+> This means that **profitability and decision quality are not always the same thing**. A player may earn a high profit because the simulated market moves strongly in their favor, even if they took excessive debt or concentration risk. Another player may earn a slightly lower return while maintaining better liquidity, lower debt exposure, and a more balanced portfolio.
+>
+> If the scoring system gives too much weight to final profit, players may be encouraged to maximize risk rather than understand the trade-off between return, funding cost, FX exposure, liquidity, and portfolio risk.
+>
+> Therefore, validating the scoring system is necessary to ensure that the final score is **fair, financially meaningful, and consistent with the learning objective of the game**.
 
-It can also affect fairness between players. A player should not be able to avoid one round of interest simply because repayment is processed earlier than interest accrual in the program.
+---
 
-Therefore, before improving the interface or further calibrating the scoring system, we need to make sure that the underlying financial logic produces correct and consistent results.
+## 3. What has your team done about this issue so far?
 
-#### 3. What has your team done about this issue so far?
-So far, our team has worked on this issue by first formalizing the financial logic before changing the implementation:
-- In Week 4, we defined the intended sequence of each round as: current-round decisions, current-round valuation, floating-interest accrual, repayment, round summary, and then the release of the next round’s data.
-- We also created sample calculations and test cases to determine the expected financial result. For example, for a loan opened in Round 1 and repaid at the end of Round 2, we confirmed that the interest should include the rates of both Round 1 and Round 2 only.
-- In addition, the prototype separates borrowing, interest, repayment, valuation, and P&L calculations into different parts of the financial engine. This has helped us identify that the key problem is not the interest formula itself, but the order in which these calculations are executed.
+> **Answer:**
+> So far, our team has already developed the main structure of the scoring system rather than evaluating players only by final profit.
+>
+> First, we separated the player's final financial result into **Investment P&L** and **Funding P&L** so that we can identify whether the result comes from asset performance or from the JPY funding position.
+>
+> Second, we designed a 100-point scoring framework consisting of:
+>
+> - **Financial Performance: 50 points**
+> - **Risk Management: 30 points**
+> - **Decision Quality: 20 points**
+>
+> Risk Management is further evaluated through factors such as **liquidity, JPY debt exposure, and portfolio concentration**. Decision Quality considers factors such as **capital efficiency, debt timing, information use, and action discipline**.
+>
+> We have also developed rule-based feedback so that the final result does not only show a score, but also explains what the player did well and what could be improved.
+>
+> In addition, we have reviewed sample strategies with different combinations of return and risk. This helped us identify the remaining question: whether the current score bands and weights are sensitive enough to distinguish between strategies that produce similar financial outcomes but involve different levels of risk.
+>
+> Therefore, the scoring structure itself has already been designed. What remains is to **test and calibrate it systematically**.
 
-#### 4. What will your team do next about this issue?
-Before or during Week 6, our team will revise the game engine so that repayment is treated as an end-of-round settlement event rather than being executed immediately when the player selects the repayment option.
+---
 
-The intended sequence will be:
-$$\text{Player decisions} \longrightarrow \text{Current-round interest accrual} \longrightarrow \text{Repayment settlement} \longrightarrow \text{Portfolio \& debt calculation} \longrightarrow \text{Round summary} \longrightarrow \text{Next-round data release}$$
+## 4. What will your team do next about this issue?
 
-After making this change, we will test several repayment paths, including repayment at the end of Round 1, Round 2, Round 4, and repayment only at the End Phase.
-
-For each case, we will compare the game output with our reference financial calculations. We will only consider the issue resolved when the interest expense, repayment amount, Funding P&L, Net P&L, and Final Wealth reconcile correctly.
+> **Answer:**
+> Before or during Week 6, our team will conduct structured scenario testing to validate and calibrate the scoring system.
+>
+> We will compare players under controlled scenarios where only one important factor changes at a time. For example:
+>
+> 1. **Similar return, different risk:** two players earn similar Net P&L, but one has higher debt exposure, weaker liquidity, or greater asset concentration.
+> 2. **Similar risk, different return:** two players take comparable levels of risk but achieve different financial results.
+> 3. **High-return, high-risk versus moderate-return, controlled-risk:** to test whether the scoring system appropriately balances return and risk.
+> 4. **Adverse market conditions:** to test how the scoring system responds when USD/JPY, asset prices, and funding costs move against the player.
+>
+> Based on these tests, we will review the score thresholds and weights and adjust them if necessary.
+>
+> We will also check whether small score differences are explainable. For example, if one player receives **96 points and another receives 97 points**, the additional point should come from a measurable difference such as stronger liquidity, lower debt exposure, better diversification, or more disciplined decision-making.
+>
+> Our Week 6 objective is therefore to make sure that the scoring system is not only mathematically complete, but also **consistent, explainable, and fair across different player strategies**.
 
 ---
 
