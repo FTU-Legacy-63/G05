@@ -76,7 +76,7 @@ We will compare players under controlled scenarios where only one important fact
 
 Based on these tests, we will review the score thresholds and weights and adjust them if necessary.
 
->We will also check whether small score differences are explainable. For example, if one player receives **96 points and another receives 97 points**, the additional point should come from a measurable difference such as stronger liquidity, lower debt exposure, better diversification, or more disciplined decision-making.
+We will also check whether small score differences are explainable. For example, if one player receives **96 points and another receives 97 points**, the additional point should come from a measurable difference such as stronger liquidity, lower debt exposure, better diversification, or more disciplined decision-making.
 
 > Our Week 6 objective is therefore to make sure that the scoring system is not only mathematically complete, but also **consistent, explainable, and fair across different player strategies**.
 
