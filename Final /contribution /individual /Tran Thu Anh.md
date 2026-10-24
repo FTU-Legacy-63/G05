@@ -1,120 +1,99 @@
-## 1. My Main Responsibility
 
-My primary responsibility was designing and refining game mechanics, market news, and scoring systems across ARBIVERSE's three phases. I also developed financial calculation formulas for Phases 1 and 3 and conducted scenario-based testing to validate game logic, financial calculations, and scoring criteria.
+# Individual Contribution Report — Trần Thu Anh
 
-My work focused on translating financial concepts into interactive simulations where players interpret market information, make strategic decisions, manage risks, and experience the financial consequences of their actions.
+**Project: ARBIVERSE — An Arbitrage Game Simulation**
 
-## 2. My Concrete Outputs
+## 1. Executive Summary of Role and Responsibilities
 
-### 2.1. Game Logic and Mechanics
+My primary responsibility was designing and refining game mechanics, market news, financial logic, and scoring systems across ARBIVERSE's three phases. I redesigned the Tulip Mania simulation in Phase 1, tested the existing triangular FX arbitrage logic in Phase 2, and designed the JPY carry trade simulation from scratch in Phase 3. I also developed financial calculation formulas for Phases 1 and 3, refined scoring systems across all three phases, and conducted scenario-based testing to verify that the implemented game logic, parameters, and scoring reflected the intended design.
 
-**Phase 1 — Tulip Mania: Reconstructing Historical Speculation**
+My work focused on translating real-world financial concepts into interactive simulations where players interpret market information, make strategic decisions, manage risks, and experience the financial consequences of their actions.
 
-I redesigned the game logic to better reflect the progression of Tulip Mania, connecting speculative trading, changing market sentiment, and the eventual market crash within a coherent sequence of rounds.
+## 2. Personal Mark on the Product
 
-The mechanics require players to consider market timing, information advantages, inventory accumulation, liquidity, and crash exposure. Final wealth incorporates both cash and remaining tulip inventory valued at the post-crash price, ensuring that earlier trading profits do not conceal the risk of holding speculative assets when the market collapses.
+My contribution was to ensure that each phase contained the financial logic, information environment, and evaluation mechanisms necessary to create a coherent trading simulation.
 
-**Phase 2 — Triangular FX Arbitrage: Testing and Validation**
+### 2.1. Phase 1 — Tulip Mania: Realistic Speculation and Crash Consequences
 
-My contribution focused on testing the existing game logic rather than leading its design. I reviewed the two triangular currency-conversion routes, transaction costs, and Round 3's onshore/offshore market restrictions to assess their logical consistency. I found the overall mechanics reasonable and supported the validation of the existing design.
+I developed the game mechanics, financial logic, and market news to represent the progression of speculative trading. I ensured that the mechanics required players to consider market timing, inventory accumulation, liquidity, and crash exposure. The financial calculations accounted for both cash and remaining tulip inventory valued at the post-crash price, ensuring that holding assets through a crash had consequences for final wealth.
 
-**Phase 3 — JPY Carry Trade: Designing from Scratch**
+The rumor-based news reflected the speculative sentiment surrounding Tulip Mania and encouraged players to interpret information rather than follow every market signal blindly.
 
-I designed the Phase 3 game logic from the ground up, creating a simulation in which players borrow JPY, convert it into USD, invest in US technology stocks, the S&P 500, or US cash, and manage subsequent debt repayment.
+### 2.2. Phase 2 — Triangular FX Arbitrage: Spread Prediction and Period-Appropriate News
 
-The mechanics require players to consider:
+My contribution focused on designing market news that enabled players to infer and predict currency spreads without directly revealing arbitrage opportunities. I developed information in varied formats, including emails, conversations, and other period-appropriate communications that reflected the context of 1997. These different formats provided clues about market conditions, encouraging players to interpret information and estimate spreads before making trading decisions.
 
-- **Borrowing and financing costs:** Whether to borrow and how interest on outstanding JPY debt affects profitability.
-- **FX exposure:** How USD/JPY movements affect the USD obtained when borrowing and the cost of repayment.
-- **Portfolio allocation:** How to distribute funds across assets with different return and risk characteristics.
-- **Liquidity and repayment:** How much cash to retain to meet debt obligations without unfavorable forced liquidation.
-- **Solvency and final wealth:** Whether available assets can cover outstanding debt and how investment returns, FX movements, and borrowing costs determine the final outcome.
+I also tested the existing game logic, reviewing currency-conversion routes, transaction costs, and onshore/offshore market restrictions to assess whether the mechanics remained consistent with the intended arbitrage experience.
 
-These decisions are interdependent. For example, positive equity returns may not translate into an overall profit if JPY strengthens substantially before repayment. The game therefore evaluates the carry trade as a complete financing and investment strategy.
+### 2.3. Phase 3 — JPY Carry Trade: Integrated Financing and Investment Decisions
 
-### 2.2. Market News and Information Design
+I designed the game mechanics, financial logic, and market news from scratch. I ensured that the simulation connected the full carry-trade process: borrowing JPY, converting it into USD, investing across US technology stocks, the S&P 500, or US cash, and repaying the debt.
 
-I designed market news across all three phases, adapting its format and information structure to each market environment.
+The mechanics incorporated borrowing costs, exchange-rate exposure, portfolio allocation, liquidity, debt repayment, and solvency. The financial calculations reflected how investment returns, FX movements, and interest expenses jointly determined final wealth.
 
-- **Phase 1 — Gossip and Speculative Sentiment:** Designed rumor-driven news reflecting the social dynamics of Tulip Mania. The content encourages players to distinguish potentially useful signals from market hype and consider how sentiment affects trading decisions.
-- **Phase 2 — Newspaper-Style Reporting:** Used a formal financial-news format to provide market context without directly revealing the most profitable arbitrage route, requiring players to interpret developments and assess their trading implications.
-- **Phase 3 — Contemporary Social Media:** Designed short, social-media-style updates reflecting how investors encounter competing market interpretations. Initial news intentionally leaves room for interpretation, while additional information is designed to clarify specific uncertainties and provide more decision-relevant context.
+I also designed social-media-style market news to present competing interpretations of market developments and help players make allocation and borrowing decisions under uncertainty.
 
-A key principle was to create **meaningful ambiguity rather than arbitrary confusion**. Additional information should offer a clear reason for players to investigate further, helping them reconsider borrowing, repayment, or portfolio allocation without guaranteeing a profitable outcome.
+### 2.4. Across All Phases — Consistency Between Design and Evaluation
 
-### 2.3. Financial Calculation Formulas
+I refined scoring criteria to align with each phase's objectives and risk profile. I also tested whether financial formulas, scoring parameters, and code behavior were consistent with the intended game rules. This helped ensure that performance was evaluated not only by financial outcomes but also by risk management and decision quality where relevant.
 
-I developed and refined financial calculation formulas for Phases 1 and 3 to ensure that player outcomes reflect trading results, market movements, financing costs, and outstanding liabilities.
+## 3. What I Actually Did, Week by Week
 
-**Phase 1 — Wealth and Trading Performance**
+### Weeks 1–2 — Assisting in General Game Design
 
-$$
-\text{Final Wealth} = \text{Final Cash} + (\text{Remaining Tulips} \times \text{Post-Crash Price})
-$$
+Contributed to the development of ARBIVERSE's overall game design, helping establish the structure and direction of the trading simulation before working on individual phases.
 
-$$
-\text{Net Return} = \frac{\text{Final Wealth} - \text{Initial Wealth}}{\text{Initial Wealth}} \times 100\%
-$$
+### Week 3 — Building Phase 1
 
-This framework captures both cash and remaining asset value, ensuring that final performance reflects the consequences of holding tulip inventory through the crash.
+Developed the Tulip Mania mechanics, financial logic, and market news. Focused on representing speculative market behavior, the consequences of holding inventory through a crash, and the relationship between player decisions and final wealth.
 
-**Phase 3 — FX, Investment, and Debt**
+### Week 4 — Building Phase 3
 
-My work covered the calculations for FX P&L, portfolio investment P&L, portfolio valuation, interest accrual, debt repayment, final wealth, and solvency. These formulas account for the interaction between asset returns, exchange-rate movements, and borrowing costs.
+Designed the JPY carry trade mechanics, financial calculations, and market news from scratch. Integrated borrowing, currency conversion, investment allocation, interest accrual, repayment, and solvency into a connected gameplay process.
 
-Final wealth deducts the USD value of remaining debt from portfolio and cash value, while solvency compares available liquidation value with outstanding repayment obligations. Return-based measures also help evaluate performance relative to the relevant capital base rather than relying solely on absolute profit.
+### Week 5 — Retesting Phase 3 and Designing Phase 2 News
 
-### 2.4. Scoring System Refinement
+Retested Phase 3 after the midterm review to identify and address scoring problems. Also designed market news for Phase 2, aiming to communicate relevant financial information while requiring players to interpret arbitrage opportunities.
 
-I refined the scoring systems to align performance evaluation with the objective and risk profile of each phase. The frameworks distinguish financial performance, risk management, and decision quality, with different weightings reflecting each phase's central challenge.
+### Weeks 6–7 — Final Product Testing and Refinement
 
-**Phase 1 — Financial Performance and Trading Execution**
+Tested the final product to check whether the code correctly reflected the intended game mechanics. Evaluated whether parameters were suitable, checked scoring outcomes for correctness, and revised market news to improve clarity and align it with each phase's theme. This final testing focused on consistency between the design intention and the implemented gameplay experience.
 
-The scoring framework allocates 40 points to Financial Performance, 30 to Arbitrage and Trading Execution, 15 to Decision Quality, and 15 to Risk Management. The emphasis on financial results and trading execution reflects the importance of capturing speculative opportunities, while risk-management criteria account for inventory exposure, liquidity, and drawdown control. I also incorporated an activity-based score cap to reduce incentives for players to achieve high scores simply by avoiding meaningful trading decisions.
+## 4. Files Contributed
 
-**Phase 2 — Arbitrage Profitability and Execution Discipline**
+My contributions covered the following deliverables:
 
-The framework allocates 50 points to Financial Performance, 30 to Risk Management, and 20 to Decision Quality. This prioritizes net returns while recognizing that apparent arbitrage opportunities may become unprofitable after transaction costs or market restrictions. Risk management and decision quality help distinguish effective execution from strategies that overlook trading constraints.
+- **General game design:** Contributions to the overall structure and direction of ARBIVERSE.
+- **Phase 1:** Tulip Mania mechanics, financial calculation logic, market news, and scoring framework.
+- **Phase 2:** Market news design and testing of the existing triangular FX arbitrage logic.
+- **Phase 3:** JPY carry trade mechanics, financial calculations, market news, and scoring refinement.
+- **Final testing:** Scenario testing, parameter checks, scoring validation, and market-news revisions.
 
-**Phase 3 — Carry-Trade Returns and Decision Quality**
+## 5. File Evidence: Documents Created or Edited
 
-The framework allocates 50 points to Financial Performance, 10 to Risk Management, and 40 to Decision Quality. Financial Performance combines FX Performance (20 points) and Portfolio Investment Performance (30 points). Risk Management covers liquidity, debt exposure, and portfolio risk, while Decision Quality evaluates capital deployment, debt utilization, signal–allocation alignment, and position sizing.
+- **Phase 1 — Game Mechanics, Formulas, and Scoring:** [PHASE 1 DESIGN & NEWS](https://docs.google.com/document/d/1YlQwlsCcfVtesl8XTI6wmZ5mdOPjVqJLEY8KQGPG3X8/edit?hl=vi&tab=t.4vqdpx5ydm91)
+- **Phase 2 — Triangular FX Arbitrage:** [PHASE 2 NEWS](https://docs.google.com/document/d/1YlQwlsCcfVtesl8XTI6wmZ5mdOPjVqJLEY8KQGPG3X8/edit?hl=vi&tab=t.p1jb2v28ypr7)
+- **Phase 3 — JPY Carry Trade, Formulas, and Scoring:** [PHASE 3 DESIGN & NEWS](https://docs.google.com/document/d/1YlQwlsCcfVtesl8XTI6wmZ5mdOPjVqJLEY8KQGPG3X8/edit?hl=vi&tab=t.uqh77koqk4wh)
+- **Scenario-Based Testing:** [TESTING](https://docs.google.com/document/d/1YlQwlsCcfVtesl8XTI6wmZ5mdOPjVqJLEY8KQGPG3X8/edit?hl=vi&tab=t.qtq84zo3l7u0)
 
-The high Decision Quality weighting reflects the interconnected nature of borrowing, currency exposure, investment allocation, and repayment. A profitable outcome alone does not necessarily indicate a sound strategy; players must also make decisions consistent with the information available at the time.
+## 6. What I Personally Learned
 
-Across all three phases, I refined scoring definitions to improve consistency with the financial formulas and reduce unintended incentives, while preserving the distinct objectives of each trading environment.
+I learned how to translate financial concepts into game mechanics that are both realistic and accessible to players. The project strengthened my understanding of how market information, trading decisions, transaction costs, exchange rates, financing, and risk interact to determine financial outcomes. I also learned the importance of testing the implemented product against its original design, particularly when parameters and scoring systems can influence player behavior.
 
-### 2.5. Scenario-Based Testing
+## 7. Difficulties Encountered and How I Handled Them
 
-I prepared scenario-based test cases to examine game mechanics, financial calculations, and scoring outcomes under different conditions. Testing covered rule consistency, P&L and portfolio valuation, exchange-rate conversions, interest accrual, debt repayment, solvency, and scoring behavior.
+One of the main challenges was balancing real-world financial accuracy with the simplicity required for an engaging game. Real-world arbitrage, for example, depends on currency-conversion rates, transaction costs, market restrictions, and execution conditions. Translating these factors into a game required preserving the essential logic without overwhelming players with unnecessary complexity. I approached this by focusing on the financial factors most relevant to player decisions and reviewing whether the rules communicated them clearly.
 
-I also considered edge cases such as unsold tulip inventory after a crash, adverse FX movements before repayment, and insufficient liquidity to cover debt. These tests helped identify ambiguities and inconsistencies that could be addressed through revisions to rules, formulas, and scoring criteria.
+Another challenge was designing market news that was realistic, comprehensible, and consistent with the overall game. News needed to reflect the characteristics of each market while providing enough information for players to make informed decisions without making the correct strategy immediately obvious. I adapted the format and tone to each phase, from speculative rumors in Phase 1 to financial reporting in Phase 2 and social-media-style updates in Phase 3.
 
-## 3. Evidence Links
+Finally, ensuring that the implemented game behaved as intended required repeated testing. I checked parameters, scoring outcomes, and edge cases, then revisited Phase 3's scoring after the midterm review. This helped identify areas where the scoring system needed refinement to better reflect the intended objectives.
 
-- [Phase 1 — Game Mechanics, Formulas, and Scoring](https://docs.google.com/document/d/1YlQwlsCcfVtesl8XTI6wmZ5mdOPjVqJLEY8KQGPG3X8/edit?hl=vi&tab=t.4vqdpx5ydm91)
-- **Phase 2 — Triangular FX Arbitrage:** [Add verified evidence link]
-- [Phase 3 — JPY Carry Trade, Formulas, and Scoring](https://docs.google.com/document/d/1YlQwlsCcfVtesl8XTI6wmZ5mdOPjVqJLEY8KQGPG3X8/edit?hl=vi&tab=t.uqh77koqk4wh)
-- [Scenario-Based Testing Documentation](https://docs.google.com/document/d/1YlQwlsCcfVtesl8XTI6wmZ5mdOPjVqJLEY8KQGPG3X8/edit?hl=vi&tab=t.qtq84zo3l7u0)
+## 8. Message for Future Generations
 
-## 4. How My Work Is Used
+Start by understanding the financial concept you want the game to simulate, then identify the essential decisions and risks players should experience. Do not sacrifice the core logic simply to make the rules easier; instead, simplify the presentation while preserving the important relationships. Design market news around the decisions players need to make, and test the final product against the original design rather than assuming that correct documentation guarantees correct implementation.
 
-My outputs connect game design, financial calculations, and performance evaluation. Game mechanics define the actions and risks available to players, while market news provides the information environment for their decisions. Financial formulas translate those decisions into measurable outcomes, and the scoring system evaluates profitability, risk management, and decision quality.
+## 9. Summary of Individual Contribution
 
-Together, these components provide the documented rules and evaluation framework used to implement, test, and refine ARBIVERSE's trading simulations.
-
-## 5. Integration, Testing, and Revision
-
-I reviewed the consistency between game rules, market scenarios, financial formulas, and scoring criteria. I conducted scenario-based testing across Phases 1–3 to identify edge cases and inconsistencies, then refined relevant rules, formulas, and scoring criteria. For Phase 2, my role was to test and validate the existing logic rather than lead its design.
-
-## 6. Remaining Limitation
-
-Some scoring thresholds and performance benchmarks require further calibration against actual gameplay data. Repeated testing would help determine whether the scoring systems consistently distinguish effective strategies from outcomes driven primarily by favorable market movements or excessive risk.
-
-## 7. Summary of Individual Contribution
-
-My contribution focused on designing and validating ARBIVERSE's game mechanics and evaluation framework. I redesigned Phase 1's speculative-market mechanics, tested Phase 2's existing arbitrage logic, and designed Phase 3's carry-trade mechanics from scratch. I also developed phase-specific market news, financial formulas for Phases 1 and 3, scoring criteria across all three phases, and scenario-based testing documentation.
-
-These outputs connect market information and player decisions with measurable financial outcomes and structured performance evaluation.
+Across seven weeks, I contributed to ARBIVERSE's general game design, built the mechanics, financial logic, and news for Phases 1 and 3, designed market news and tested existing logic for Phase 2, and participated in final product testing. My work focused on making the simulations financially meaningful, the information understandable, and the scoring consistent with the intended player experience. Through iterative testing and refinement, I helped connect financial concepts with the mechanics and evaluation systems used in the final trading simulation.
 
 
