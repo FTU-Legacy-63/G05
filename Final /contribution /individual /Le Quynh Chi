@@ -1,0 +1,73 @@
+# ARBIVERSE – Individual Contribution
+
+## My main responsibility
+
+I coded Arbiverse, a single playable web game with three phases: Phase I Tulip Mania, Phase II Thai Baht Crisis (triangular FX arbitrage) and Phase III JPY Carry Trade. My main responsibility was to turn the group’s financial logic and scoring files into working game rules, calculations and scoring.
+
+I built each phase from scratch: the rounds and timers, buy and sell offers, cash and inventory, FX arbitrage across onshore and offshore markets, yen borrowing and repayment, fees, profit and loss, and the final settlement. I coded the scoring for all three phases out of 100 exactly as the scoring files describe, and wrote the debrief screens that explain each score and end with an economic lesson. I also added the sound effects, mini-charts, warning pop-ups and the menu that connects the three phases into one game.
+
+I tested every phase from start to final debrief, reran the same tests after each fix, and corrected the problems that appeared, such as the Phase II amount field, the Max button and scores that did not add up. I also supported my teammates with layout design, game testing, financial logic and rule definition, and applied Uyên’s design and test feedback in the code.
+
+## My concrete outputs
+
+- File `Arbiverse.html` combining 3 phases: Phase I Tulip Mania, Phase II Thai Baht Crisis and Phase III Carry Trade, including the beginning of the game at the debrief after each phase.
+- Buy/Sell/Deposit/Withdraw/Repaying loans/Borrowing/Confirming actions in 3 phases.
+- Timing, colors, background sounds and animations: The final debrief plays applause for a score of 50 or more, and a crowd sigh below 50. When players buy additional information: Phase I plays a paper-tear sound when the letter opens. Phase II plays the sound of stamping. Phase III plays connecting beeps.
+- Mini-charts, mini-dashboards show live statistics on the trading desk.
+- Warning signs / alerts pop-ups.
+- Layout (including top bar, splitted screen, market news, additional information, debrief design).
+- Interlinking stages within the game (`Menu -> How to play -> Role introduction -> Playing games -> Overall performance -> Debrief`).
+
+## What I actually did, week by week
+
+| Week | What I did |
+|---|---|
+| **Week 1** | Built Phase I Tulip Mania: rounds, buy and sell offers, inventory, news and the crash. |
+| **Week 2** | Built Phase II Thai Baht Crisis: triangular FX arbitrage with onshore and offshore rates, fees and profit calculation. |
+| **Week 3** | Built Phase III JPY Carry Trade: borrowing yen, investing, deposits, withdrawals and repaying the loan. |
+| **Week 4** | Assembled the three phases into one game behind a menu, then added sounds, animations and alerts. |
+| **Weeks 5, 6, 7** | Applied the scoring READMEs, shortened the debriefs, ran the test table and reran it after the final fixes. |
+
+## Evidence
+
+[Arbiverse game](https://k632412380012-lgtm.github.io/Financial-game/arbiverse%20(9).html)
+
+## How my work is used
+
+Players open `arbiverse.html` in a browser and choose one of the three phases to start. Their choices in each phase are turned into the financial results (P&L, fees, FX results), the score and the final debrief with the economic lesson. The group uses the game for the demo and the testing sections of the project.
+
+## Integration, testing and revision
+
+- **Integration:** The three phases are built separately and assembled into one file. The host menu marks each phase as done and lets the player restart. The financial logic from the READMEs is coded directly into the rules and scores.
+- **Layout and testing:** Uyên’s design and test feedback was applied, for example the character images in the role introduction.
+- **Testing:** Every phase was played from start to final debrief with no page errors. The same set of tests was rerun after the last changes.
+- **Revisions after feedback:**
+  - Fixed the Phase II amount field, which could not accept typed digits.
+  - Removed the trade-size limit so Max uses all cash.
+  - Let Phase III players buy and sell before confirming.
+  - Applied the new scoring rules for 3 phases.
+  - Shortened the debriefs.
+  - Checked again financial logic and scenarios (example: how many times players can stay in cash within 1 phase).
+
+## What I Personally Learned
+
+- **Finance becomes clearer when you build it:** Cross rates, fees and the currency risk of repaying a yen loan made sense once I had to calculate them.
+- **Test with scenarios, not only with clicks:** Running a passive player, a churner and a strong player against the expected score ranges found problems that playing once never showed.
+- **Explain the result:** A score only teaches when the player can see why they got it.
+- **Teamwork needs one version of the truth:** Applying Uyên’s feedback and the group’s decisions in a single build kept the three phases consistent.
+
+## Difficulties Encountered and How I Handled Them
+
+- The scoring files left some score cut-offs and two judgement criteria open. I set the cut-offs myself, inferred both criteria from what players did, and checked them against the scenarios.
+- The displayed total did not always equal its criteria. I rounded every criterion the same way, scaled them proportionally under a score cap and tested all three phases.
+- The Phase II amount field rejected typed digits, and Max did not use all cash. I fixed the field and removed the trade-size limit.
+- Players could pass on every deal and skip a round. At least one trade is now required, and passing on everything counts as a Stay in Cash.
+
+## Message for Future Generations
+
+Write the rules with exact numbers first, then code, and test again after every change.
+
+1. **Agree on the numbers before you code:** Score ranges, cut-offs and what happens in edge cases.
+2. **Keep one build that combines every part,** so nothing drifts apart.
+3. **Play every phase from start to finish after each change,** and keep a table of expected against actual results.
+4. **Let someone who did not build the game play it early.** They will find what you can no longer see.
