@@ -72,7 +72,7 @@ The scoring framework was designed to distinguish effective financial decision-m
 
 I conducted scenario-based testing across all three phases to verify game mechanics, financial calculations, and scoring consistency.
 
-For Phase 3, I developed and tested 40 scenarios (S1–S40), examining different combinations of borrowing, FX movements, asset allocations, investment returns, and debt repayment outcomes.
+For Phase 3, I developed and tested scenarios, examining different combinations of borrowing, FX movements, asset allocations, investment returns, and debt repayment outcomes.
 
 Testing focused on:
 
