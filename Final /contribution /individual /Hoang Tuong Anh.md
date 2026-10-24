@@ -1,5 +1,4 @@
-
-# Individual Footprint – ARBIVERSE
+# Individual Footprint
 
 ## 1. My Main Responsibility
 
